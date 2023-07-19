@@ -1,2 +1,3 @@
-# Logbook
-Logbook for Programming Languages ​​and Paradigms
+# Logbook - JavaScript
+Logbook para linguagens e paradigmas de programação.
+
