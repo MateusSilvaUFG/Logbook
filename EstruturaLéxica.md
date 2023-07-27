@@ -105,10 +105,10 @@ em JavaScript.
 Considere o código a seguir. Como as duas instruções aparecem em linhas separadas, o primeiro
 ponto e virgula poderia ser omitido:
 
-a = 3;
-b = 4;
-Contudo, escrito como a seguir, o primeiro ponto e vírgula é obrigatório:
-a = 3; b = 4;
+      a = 3;
+      b = 4;
+      Contudo, escrito como a seguir, o primeiro ponto e vírgula é obrigatório:
+      a = 3; b = 4;
 
 Observe que JavaScript não trata toda quebra de linha como ponto e vírgula: ela normalmente trata como
 quebras de linha como pontos e vírgulas somente se não conseguir analisar o código sem os pontos e
@@ -116,11 +116,11 @@ vírgulas. Mais formalmente (e com as duas características, descritas a seguir)
 de linha como ponto e virgula caso o próximo caractere que não seja espaço não possa ser interpretado como a continuação da instrução corrente. Considere o código a seguir:
 
 
-var a
-a
-=
-3
-console.log(a)
+      var a
+      a
+      =
+      3
+      console.log(a)
 
 JavaScript interpreta esse código como segue:
 var a; a = 3; console.log(a);
