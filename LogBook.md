@@ -38,7 +38,7 @@ As aplicações do JavaScript são diversas, incluindo:
 
 Em resumo, JavaScript é uma linguagem de programação versátil e poderosa, utilizada em praticamente todas as áreas do desenvolvimento web e de aplicações. Sua popularidade e adoção generalizada garantem que o JavaScript continue sendo uma das principais linguagens de programação no mundo da tecnologia.
 
-## Método de Implementação
+## 0 Método de Implementação
 
 JavaScript é uma linguagem de programação interpretada, não uma linguagem compilada. Isso significa que, em vez de ser compilado em código de máquina antes da execução, o código JavaScript é lido e executado linha por linha por um interpretador no navegador ou no ambiente em que está sendo executado.
 
@@ -53,6 +53,133 @@ O processo de execução do JavaScript ocorre da seguinte maneira:
 A interpretação do JavaScript traz algumas vantagens, como a portabilidade do código, pois não há necessidade de recompilação para diferentes plataformas, e facilita a depuração, pois os erros podem ser identificados linha por linha.
 
 No entanto, a interpretação pode ser mais lenta em comparação com linguagens compiladas, especialmente para operações intensivas em processamento. Para melhorar o desempenho, os navegadores modernos também usam otimização JIT, que transforma trechos de código frequentemente usados em código nativo otimizado para a plataforma em questão, acelerando sua execução.
+
+## 1 Estruruta léxica
+
+A estrutura léxica de uma linguagem de programação é o conjunto de regras elementares que especificam o modo de escrever programas nessa linguagem. É a sintaxe de nível mais baixo de uma
+linguagem; especifica detalhes de como são os nomes de variáveis, os caracteres delimitadores para
+comentários e como uma instrução do programa é separada da seguinte.
+
+### conjunto de caracteres
+
+Os programas JavaScript são escritos com o conjunto de caracteres Unicode. Unicode é um superconjunto de ASCII e Latin-1 e suporta praticamente todos os idiomas escritos usados hoje no
+planeta
+
+### Diferenciação de maiúsculas e minúsculas
+
+JavaScript é uma linguagem que diferencia letras maiúsculas de minúsculas. Isso significa que palavras-chave, variáveis, nomes de função e outros identificadores da linguagem sempre devem ser digitados com a composição compatível de letras. A palavra-chave while, por exemplo, deve ser digitada
+como “while” e não como “While” ou “WHILE.” Da mesma forma, online, Online, OnLine e ONLINE
+são quatro nomes de variável distintos.
+
+### Sequências de escape Unicode
+Alguns componentes de hardware e software de computador não conseguem exibir ou introduzir o
+conjunto completo de caracteres Unicode. Para ajudar os programadores que utilizam essa tecnologia mais antiga, JavaScript define sequências especiais de seis caracteres ASCII para representar qualquer código Unicode de 16 bits. Esses escapes Unicode começam com os caracteres \u e são seguidos
+por exatamente quatro dígitos hexadecimais (usando as letras A–F maiúsculas ou minúsculas). Os
+escapes Unicode podem aparecer em strings literais, expressões regulares literais e em identificadores
+JavaScript (mas não em palavras-chave da linguagem). O escape Unicode para o caractere “é”, por
+exemplo, é \u00E9, e as duas strings JavaScript a seguir são idênticas:
+
+      "café" === "caf\u00e9" // => true
+  
+Os escapes Unicode também podem aparecer em comentários, mas como os comentários são ignorados, eles são tratados como caracteres ASCII nesse contexto e não são interpretados como
+Unicode.
+
+### Normalização
+O Unicode permite mais de uma maneira de codificar o mesmo caractere. A string “é”, por exemplo, pode ser codificada como o caractere Unicode \u00E9 ou como um caractere ASCII “e” normal, seguido da marca de combinação de acento agudo \u0301. Essas duas codificações podem parecer exatamente a mesma quando exibidas por um editor de textos, mas têm diferentes codificações binárias e são consideradas diferentes pelo computador. O padrão Unicode define a codificação preferida para todos os caracteres e especifica um procedimento de normalização para converter texto em uma forma canônica conveniente para comparações. JavaScript presume que o código-fonte que
+está interpretando já foi normalizado e não tenta normalizar identificadores, strings nem expressões
+regulare
+
+### Comentários
+JavaScript aceita dois estilos de comentários. Qualquer texto entre // e o final de uma linha é tratado
+como comentário e é ignorado por JavaScript. Qualquer texto entre os caracteres /* e */ também é
+tratado como comentário; esses comentários podem abranger várias linhas, mas não podem ser aninhados. As linhas de código a seguir são todas comentários JavaScript válidos:
+
+            // Este é um comentário de uma linha.
+            /* Este também é um comentário */ // e aqui está outro comentário.
+            /*
+            * Este é ainda outro comentário.
+            * Ele tem várias linhas.
+            */
+### Literais
+Um literal é um valor de dados que aparece diretamente em um programa. Os valores seguintes são
+
+todos literais:
+
+      12 // O número doze
+      1.2 // O número um ponto dois
+      "hello world" // Uma string de texto
+      'Hi' // Outra string
+      true // Um valor booleano
+      false // O outro valor booleano
+      /javascript/gi // Uma "expressão regular" literal (para comparação de padrões)
+      null // Ausência de um objeto
+
+### identificadores
+
+Em JavaScript, um identificador é um nome utilizado para identificar variáveis, funções, classes ou qualquer outro elemento nomeado dentro do código. Em outras palavras, é um nome que você escolhe para dar a uma entidade (variável, função, objeto, etc.) para poder referenciá-la e utilizá-la em seu programa.
+
+As regras para formar identificadores em JavaScript são as seguintes:
+
+Um identificador pode conter letras (maiúsculas e minúsculas), dígitos (0-9) e os caracteres especiais _ (underscore) e $ (cifrão).
+Um identificador deve começar com uma letra, _ ou $. Ele não pode começar com um dígito.
+Não é permitido o uso de espaços em um identificador.
+O identificador pode ser qualquer sequência de caracteres válidos que não seja uma palavra reservada (palavras que possuem significado específico na linguagem e não podem ser usadas como identificadores).
+Exemplos de identificadores válidos em JavaScript:
+
+      let nome;
+      const idade;
+      const _variavel;
+      const $preco;
+      let contador123;
+      const minhaFuncao;
+
+Exemplos de identificadores inválidos (que causariam erro de sintaxe):
+
+      let 123abc; // Não pode começar com dígito
+      let minha variavel; // Não pode conter espaços
+      const break; // "break" é uma palavra reservada em JavaScript
+      
+É importante escolher nomes significativos e descritivos para identificadores, para que o código seja mais legível e compreensível para outras pessoas que venham a ler o seu código.
+
+### Palavras reservadas fazem parte desse capitulo
+
+JavaScript predefine diversas variáveis e funções globais e você deve evitar o uso de seus nomes em suas próprias variáveis e funções:
+
+      arguments encodeURI Infinity Number RegExp
+      Array encodeURIComponent isFinite Object String
+      Boolean Error isNaN parseFloat SyntaxError
+      Date eval JSON parseInt TypeError
+      decodeURI EvalError Math RangeError undefined
+      decodeURIComponent Function NaN ReferenceError URIError
+
+### Pontos e vírgulas opcionais
+
+Muitos programadores JavaScript (e o código deste livro) utilizam pontos e vírgulas para marcar explicitamente os finais de instruções, mesmo onde eles não são obrigatórios. Outro estilo é omitir os pontos
+e vírgulas quando possível, utilizando-os nas poucas situações que os encorajaram. Qualquer que seja o
+estilo escolhido, existem alguns detalhes que você deve entender sobre os pontos e virgulas opções
+em JavaScript.
+Considere o código a seguir. Como as duas instruções aparecem em linhas separadas, o primeiro
+ponto e virgula poderia ser omitido:
+
+      a = 3;
+      b = 4;
+      Contudo, escrito como a seguir, o primeiro ponto e vírgula é obrigatório:
+      a = 3; b = 4;
+
+Observe que JavaScript não trata toda quebra de linha como ponto e vírgula: ela normalmente trata como
+quebras de linha como pontos e vírgulas somente se não conseguir analisar o código sem os pontos e
+vírgulas. Mais formalmente (e com as duas características, descritas a seguir), JavaScript trata uma quebra
+de linha como ponto e virgula caso o próximo caractere que não seja espaço não possa ser interpretado como a continuação da instrução corrente. Considere o código a seguir:
+
+
+      var a
+      a
+      =
+      3
+      console.log(a)
+
+JavaScript interpreta esse código como segue:
+var a; a = 3; console.log(a);
 
 ## Precedência e Associatividade de Operadores
 
@@ -92,7 +219,7 @@ A associatividade determina a direção em que os operadores são agrupados quan
 
 É importante lembrar que, se você estiver usando diferentes operadores na mesma expressão, é fundamental conhecer a precedência e associatividade para garantir que a expressão seja avaliada corretamente. Caso seja necessário alterar a ordem de avaliação, é possível usar parênteses para agrupar as operações conforme desejado.
 
-## Tipos, valores e variáveis
+##  2 Tipos, valores e variáveis
 pagina 28 - 52
 
 Os tipos de JavaScript podem ser divididos em duas categorias: __tipos primitivos__ e __tipos de objeto__. E podem ser divididos em __tipos com métodos__ e __tipos sem métodos__. Também podem ser classificados como __tipos mutáveis__ e __tipos imutáveis__.
@@ -585,3 +712,87 @@ a = 20; // Altera o valor de a, mas não afeta b
 console.log(b); // Saída: 10, pois b tem uma cópia do valor original de a
 Portanto, em JavaScript, todas as variáveis, sejam primitivas ou objetos, são armazenadas no heap, mas o comportamento de cópia e atribuição difere entre os tipos de dados. O mecanismo de passagem por referência para objetos é importante para entender como as alterações em um objeto afetam outras variáveis que também fazem referência ao mesmo objeto.
 
+### registros
+
+Em JavaScript, você pode criar objetos que são coleções de pares chave-valor, onde as chaves são strings (ou símbolos) que representam os campos e os valores são os dados associados a esses campos. Essa é uma maneira eficaz de criar estruturas de dados semelhantes a registros. Aqui está um exemplo de como criar e usar um objeto em JavaScript:
+
+    // Criando um objeto representando informações de uma pessoa
+    var pessoa = {
+    nome: "João",
+    idade: 30,
+    profissao: "Desenvolvedor"
+    };
+
+    // Acessando campos do objeto
+    console.log(pessoa.nome);      // Saída: João
+    console.log(pessoa.idade);     // Saída: 30
+    console.log(pessoa.profissao); // Saída: Desenvolvedor
+
+Além disso, a partir do ECMAScript 2015 (ES6), JavaScript também introduziu o tipo de dado "Map" que permite criar coleções de pares chave-valor, semelhantes a registros, com algumas funcionalidades adicionais em comparação com objetos.
+
+Portanto, embora JavaScript não possua um tipo de dado específico chamado "Registro", a flexibilidade dos objetos e a introdução dos "Maps" permitem que você crie estruturas de dados semelhantes a registros para armazenar informações relacionadas.
+
+### tipo de dado MAP
+
+Em JavaScript, o tipo de dado "Map" é uma estrutura que permite armazenar coleções de pares chave-valor, onde tanto as chaves quanto os valores podem ser de qualquer tipo. O "Map" é uma alternativa mais flexível e poderosa aos objetos quando se trata de criar estruturas de dados complexas que requerem mapeamento de chaves para valores.
+
+A principal diferença entre "Map" e objetos em JavaScript é que os "Map" permitem usar qualquer tipo de dado como chave, incluindo tipos de dados complexos como objetos e funções, enquanto os objetos permitem apenas usar strings e símbolos como chaves.
+
+Aqui está um exemplo de como criar e usar um "Map" em JavaScript:
+
+    // Criando um Map
+    var meuMap = new Map();
+
+    // Adicionando elementos ao Map
+    meuMap.set("chave1", "valor1");
+    meuMap.set(123, "valor2");
+    meuMap.set({ nome: "Alice" }, "valor3");
+
+    // Acessando elementos no Map
+    console.log(meuMap.get("chave1")); // Saída: valor1
+    console.log(meuMap.get(123));      // Saída: valor2
+    console.log(meuMap.get({ nome: "Alice" })); // Saída: valor3 (devido à referência de objeto)
+
+    // Verificando a existência de uma chave no Map
+    console.log(meuMap.has("chave1")); // Saída: true
+
+    // Removendo um elemento do Map
+    meuMap.delete(123);
+
+    // Tamanho do Map
+    console.log(meuMap.size); // Saída: 2
+
+Ao usar "Map", você pode mapear praticamente qualquer tipo de dado a um valor correspondente e aproveitar métodos como set, get, has, delete, entre outros, para manipular a coleção. "Map" é especialmente útil quando você precisa armazenar pares chave-valor e a flexibilidade das chaves é importante.
+
+###  Tipo União?
+
+JavaScript não possui nativamente um tipo de dado chamado "União" (Union type) como é encontrado em algumas outras linguagens de programação, como TypeScript ou Kotlin. Um tipo de união permite que uma variável possa conter valores de diferentes tipos especificados.
+
+No entanto, em JavaScript, as variáveis são tipadas dinamicamente, o que significa que uma mesma variável pode conter diferentes tipos de dados ao longo do tempo. Por exemplo, uma variável pode conter um número em um momento e, mais tarde, ser atribuída a uma string.
+
+Embora JavaScript não tenha tipos de união incorporados como em outras linguagens, você pode simular comportamentos semelhantes usando lógica condicional e métodos de verificação de tipos. Por exemplo:
+
+    let valor;
+
+    if (condicao) {
+    valor = 42;  // atribui um número
+    } else {
+    valor = "Olá"; // atribui uma string
+    }
+
+Se você deseja obter recursos semelhantes aos tipos de união de linguagens como TypeScript, você pode considerar usar TypeScript em vez do JavaScript padrão. TypeScript é um superset de JavaScript que adiciona tipagem estática opcional e outros recursos de linguagem, incluindo tipos de união. Com TypeScript, você pode definir explicitamente tipos de união para uma variável, permitindo que ela possua diferentes tipos em diferentes situações.
+
+### verificação de tipo 
+A verificação de tipo em JavaScript é dinâmica, o que significa que os tipos de dados são associados aos valores em tempo de execução e podem ser alterados ao longo da vida do programa. Isso é diferente das linguagens de programação de tipagem estática, onde os tipos são definidos em tempo de compilação e não podem ser alterados facilmente durante a execução do programa.
+
+Em JavaScript, você não precisa declarar explicitamente o tipo de uma variável ao criar. O tipo é inferido automaticamente com base no valor atribuído. Além disso, você pode alterar o tipo de uma variável simplesmente atribuindo um novo valor de um tipo diferente a ela.
+
+Por exemplo:
+
+    let valor = 42; // "valor" é inferido como um número
+    console.log(typeof valor); // Saída: "number"
+
+    valor = "Olá"; // "valor" agora é uma string
+    console.log(typeof valor); // Saída: "string"
+
+Essa natureza dinâmica da verificação de tipo em JavaScript oferece flexibilidade, mas também pode levar a erros se não for tratada com cuidado. É importante estar ciente de como os tipos podem mudar em diferentes partes do código e escrever verificações apropriadas para garantir o comportamento esperado.
