@@ -219,6 +219,40 @@ A associatividade determina a direção em que os operadores são agrupados quan
 
 É importante lembrar que, se você estiver usando diferentes operadores na mesma expressão, é fundamental conhecer a precedência e associatividade para garantir que a expressão seja avaliada corretamente. Caso seja necessário alterar a ordem de avaliação, é possível usar parênteses para agrupar as operações conforme desejado.
 
+| Precedência | Operadores                    | Associatividade |
+|-------------|------------------------------|-----------------|
+| 19          | `()` (parênteses)             | -               |
+| 18          | `.` (acesso a propriedades)   | Esquerda para Direita |
+| 17          | `[]` (acesso a índices)       | Esquerda para Direita |
+| 16          | `++`, `--` (pós-incremento/decremento) | - |
+|             | `-` (unário), `+` (unário), `~` (bitwise NOT), `!` (lógico NOT) | - |
+|             | `typeof`, `void`, `delete`   | -               |
+|             | `await` (usado com `async` functions) | - |
+| 15          | `**` (exponenciação)          | Direita para Esquerda |
+| 14          | `*`, `/`, `%` (multiplicação, divisão, resto) | Esquerda para Direita |
+| 13          | `+`, `-` (adição, subtração) | Esquerda para Direita |
+| 12          | `<<`, `>>`, `>>>` (shifts)   | Esquerda para Direita |
+| 11          | `<`, `<=`, `>`, `>=`, `in`, `instanceof` | - |
+| 10          | `==`, `!=`, `===`, `!==` (igualdade) | - |
+| 9           | `&` (bitwise AND)             | Esquerda para Direita |
+| 8           | `^` (bitwise XOR)             | Esquerda para Direita |
+| 7           | `|` (bitwise OR)              | Esquerda para Direita |
+| 6           | `&&` (lógico AND)             | Esquerda para Direita |
+| 5           | `||` (lógico OR)              | Esquerda para Direita |
+| 4           | `? :` (operador ternário)     | Direita para Esquerda |
+| 3           | `=`, `+=`, `-=`, `*=`, `/=`, `%=`, etc. (atribuição) | Direita para Esquerda |
+| 2           | `,` (separador de expressões) | Esquerda para Direita |
+
+Lembre-se de que a tabela acima é uma simplificação, e você pode usar parênteses para controlar explicitamente a ordem das operações em expressões complexas.
+
+Por exemplo:
+
+      let resultado = 3 + 4 * 2; // Aqui, a multiplicação (precedência 14) ocorre antes da adição (precedência 13)
+
+No entanto:
+
+      let resultado = (3 + 4) * 2; // Aqui, os parênteses definem a ordem das operações
+
 ##  2 Tipos, valores e variáveis
 pagina 28 - 52
 
@@ -796,3 +830,84 @@ Por exemplo:
     console.log(typeof valor); // Saída: "string"
 
 Essa natureza dinâmica da verificação de tipo em JavaScript oferece flexibilidade, mas também pode levar a erros se não for tratada com cuidado. É importante estar ciente de como os tipos podem mudar em diferentes partes do código e escrever verificações apropriadas para garantir o comportamento esperado.
+
+### sintaxa basica
+
+JavaScript é uma linguagem de programação de alto nível amplamente utilizada para desenvolvimento web e outras aplicações interativas. A seguir, apresento a sintaxe e a semântica básica do JavaScript:
+
+Sintaxe Básica:
+
+Comentários:
+
+      // Este é um comentário de uma linha
+      /*
+      Este é um comentário
+      de múltiplas linhas
+      */
+
+Variáveis e Atribuição:
+
+      let nome = "Alice";
+      const idade = 25;
+      var contador = 0; // Escopo global (menos recomendado)
+
+Tipos de Dados:
+
+      let numero = 42;          // Número
+      let texto = "Olá, mundo"; // String
+      let booleano = true;      // Booleano (true/false)
+      let nulo = null;          // Valor nulo
+      let indefinido;           // Valor indefinido
+      let objeto = { chave: "valor" }; // Objeto
+      let array = [1, 2, 3];     // Array
+
+Operadores Aritméticos:
+
+      let soma = 5 + 3;
+      let subtracao = 10 - 4;
+      let multiplicacao = 6 * 2;
+      let divisao = 12 / 3;
+      let modulo = 7 % 3; // Resto da divisão
+
+Operadores de Comparação:
+
+      let igualdade = 5 === "5"; // Igualdade estrita (valor e tipo)
+let desigualdade = 10 !== 5; // Diferente estrito
+let maior = 7 > 3;
+let menorOuIgual = 4 <= 4;
+
+Estruturas de Controle: 
+
+* Condicional if:
+
+      if (condicao) {
+        // Código executado se a condição for verdadeira
+      } else {
+        // Código executado se a condição for falsa
+      }
+* Loop for:
+
+        for (let i = 0; i < 5; i++) {
+        // Código executado em cada iteração
+      }
+
+* Loop while:
+
+Funções:
+
+      function saudacao(nome) {
+        return "Olá, " + nome;
+      }
+      
+      let mensagem = saudacao("Alice"); // Retorna "Olá, Alice"
+      
+### Semântica Básica:
+
+JavaScript é uma linguagem de programação interpretada, o que significa que o código é executado diretamente pelo interpretador do navegador ou ambiente de execução. A semântica básica do JavaScript inclui:
+
+O fluxo de controle é determinado pelas estruturas de controle condicional (if/else) e de loop (for, while).
+As variáveis são tipadas dinamicamente, o que significa que você não precisa declarar explicitamente o tipo.
+Valores undefined e null são usados para representar valores ausentes ou não definidos.
+Os objetos são usados para agrupar valores relacionados em pares chave-valor.
+Funções permitem a reutilização de código e podem ser passadas como argumentos ou retornadas de outras funções.
+Esses são apenas conceitos e exemplos básicos. O JavaScript possui recursos mais avançados e é extensivamente usado para criar aplicativos web interativos, manipular o DOM, realizar chamadas assíncronas a APIs e muito mais.
