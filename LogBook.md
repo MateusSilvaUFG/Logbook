@@ -3,10 +3,33 @@ Logbook for Programming Languages ​​and Paradigms
 
 ## Índice
 
+## Índice
+
 1. [Introdução](#introdução)
 2. [Método de Implementação](#método-de-implementação)
 3. [Precedência e Associatividade de Operadores](#precedência-e-associatividade-de-operadores)
 4. [Tipos, valores e variáveis](#tipos-valores-e-variáveis)
+   1. [Objeto](#objeto)
+   2. [Herança](#herança)
+   3. [ARRAY](#array)
+   4. [Tipo Registro](#tipo-registro)
+   5. [Tipo MAP](#tipo-map)
+   6. [Tipo União](#tipo-união)
+   7. [Modelo de Programação - DOM](#modelo-de-programação---dom)
+   8. [Conversão de Tipos (Type Coercion)](#conversão-de-tipos-type-coercion)
+   9. [Verificação de Tipo](#verificação-de-tipo)
+   10. [Escopo](#escopo)
+   11. [Endereço de Memória](#endereço-de-memória)
+   12. [Amarração](#amarracao)
+   13. [Tempo de Vida](#tempo-de-vida)
+   14. [Variável Estática](#variável-estática)
+   15. [Variável Pilha](#variável-pilha)
+   16. [Variável Explícita de Heap x Variável Implícita de Heap](#variável-explícita-de-heap-x-variável-implícita-de-heap)
+   17. [Literal Numérico](#literal-numérico)
+   18. [Tratamento de Erro em JavaScript](#tratamento-de-erro-em-java-script)
+5. [Expressões e Operadores](#expressões-e-operadores)
+6. [Operadores](#operadores)
+
 
 # Introdução
 Introdução ao JavaScript e suas Aplicações:
@@ -57,7 +80,7 @@ No entanto, a interpretação pode ser mais lenta em comparação com linguagens
 
 JavaScript é uma linguagem de programação de alto nível amplamente utilizada para desenvolvimento web e outras aplicações interativas. A seguir, apresento a sintaxe e a semântica básica do JavaScript:
 
-###  Estruruta léxica
+### Estruruta léxica
 
 A *estrutura léxica* de uma linguagem de programação é o conjunto de regras elementares que especificam o modo de escrever programas nessa linguagem. É a sintaxe de nível mais baixo de uma linguagem; especifica detalhes de como são os nomes de variáveis, os caracteres delimitadores para comentários e como uma instrução do programa é separada da seguinte.
 
@@ -443,35 +466,143 @@ __Null__ É um tipo primitivo em JavaScript e representa explicitamente a ausên
 
 ### 6 - Objeto
 
+m JavaScript, um objeto é uma coleção de propriedades, onde cada propriedade tem um nome (chave) e um valor associado. Os objetos são uma estrutura de dados central na linguagem, e eles podem representar entidades do mundo real, conceitos abstratos ou até mesmo abstrações complexas.
 
-Representa um objeto, que pode conter várias propriedades e métodos.
-JavaScript é uma linguagem orientada a objetos. Isso significa que, em vez de ter funções definidas globalmente para operar em valores de vários tipos, os próprios tipos definem métodos para trabalhar com valores. Para classificar os elementos de um array a, por exemplo, não passamos a para uma função sort(). Em vez disso, chamamos o método sort() de a: a.sort(); // A versão orientada a objetos de sort(a). A definição de método é abordada no Capítulo 9. Tecnicamente, em JavaScript apenas os objetos possuem métodos. Mas números, strings e valores booleanos se comportam como se tivessem métodos (a Seção 3.6 explica como isso funciona). Em JavaScript, null e undefined são os únicos valores em que métodos não podem ser chamados.
+Os objetos podem ser criados com objetos literais, com a palavra-chave new e (em ECMAScript 5) com a função __Object.create().__
 
-(Página 29). 
+#### Objetos literais
+
+Um objeto literal é uma lista separada com vírgulas de pares nome:valor separados por dois-pontos, colocados entre chaves. Um nome de propriedade é um identificador JavaScript ou uma string literal (a string vazia é permitida).
+
+Exemplos:
+
+    var empty = {}; // Um objeto sem propriedades
+    var point = { x:0, y:0 }; // Duas propriedades
+    var point2 = { x:point.x, y:point.y+1 }; // Valores mais complexos
+    var book = {
+    "main title": "JavaScript", // Os nomes de propriedade incluem espaços,
+    'sub-title': "The Definitive Guide", // e hifens; portanto, usam strings literais
+    "for": "all audiences", // for é uma palavra reservada; portanto, usa
+    // aspas
+    author: { // O valor dessa propriedade é
+    firstname: "David", // ele próprio um objeto. Note que
+    surname: "Flanagan" // esses nomes de propriedade não têm aspas.
+    }
+    };
+
+#### Criando objetos com new
+
+O operador new cria e inicializa um novo objeto. A palavra-chave new deve ser seguida de uma chamada de função. Uma função usada dessa maneira é chamada de construtora e serve para inicializar um objeto recém-criado.
+
+    var o = new Object(); // Cria um objeto vazio: o mesmo que {}.
+    var a = new Array(); // Cria um array vazio: o mesmo que [].
+    var d = new Date(); // Cria um objeto Date representando a hora atual
+    var r = new RegExp("js"); // Cria um objeto RegExp para comparação de padrões.
+
+#### Protótipos
+
+Protótipos são um conceito fundamental em JavaScript que permite a herança e a reutilização de propriedades e métodos entre objetos. O sistema de protótipos é uma das características que diferencia JavaScript de muitas outras linguagens de programação.
+
+Quando um objeto é criado em JavaScript, ele pode herdar propriedades e métodos de um protótipo. Cada objeto em JavaScript tem um protótipo associado a ele, que pode ser outro objeto ou null. Se uma propriedade ou método não for encontrado no objeto atual, o mecanismo de protótipos irá procurar essa propriedade ou método no protótipo.
+
+__Sistema de protótipos em JavaScript:__
+
+    let animal = {
+      fazerSom: function() {
+        console.log("Som genérico");
+      }
+    };
+
+    let cachorro = Object.create(animal);
+    cachorro.fazerSom(); // Saída: "Som genérico"
+
+#### Consultando e configurando propriedades
+
+Para obter o valor de uma propriedade, use os operadores ponto (.) ou colchete ([]), d O lado esquerdo deve ser uma expressão cujo valor é um objeto. 
+* Se for usado o operador ponto, o lado direito deve ser um identificador simples que dê nome à propriedade.
+* Se forem usados colchetes, o valor dentro deles deve ser uma expressão avaliada como uma string contendo o nome da propriedade desejada:
+
+      var author = book.author; // Obtém a propriedade "author" de book.
+      var name = author.surname // Obtém a propriedade "surname" de author.
+      var title = book["main title"] // Obtém a propriedade "main title" de book.
+
+Para criar ou configurar uma propriedade, use um ponto ou colchetes, como faria para consultar a propriedade, mas coloque-os no lado esquerdo de uma expressão de atribuição:
+
+    book.edition = 6; // Cria uma propriedade "edition" de book.
+    book["main title"] = "ECMAScript"; // Configura a propriedade "main title".
+
+#### Herança 
+
+Em JavaScript, a herança simples baseada em protótipos é implementada de forma natural. Cada objeto possui apenas um único protótipo, e as propriedades e métodos são buscados primeiro no objeto e depois na cadeia de protótipos. Isso evita problemas de ambiguidade e torna a herança mais simples e previsível.
+
+1. __Herança Baseada em Protótipos:__ Essa é a forma nativa de herança em JavaScript, aproveitando o sistema de protótipos. Você pode criar um objeto e estabelecer um outro objeto como seu protótipo.
+
+        let animal = {
+          fazerSom: function() {
+            console.log("Som genérico");
+          }
+        };
+
+        let cachorro = Object.create(animal);
+        cachorro.fazerSom(); // Saída: "Som genérico"
+
+2. __class:__ O ES6 introduziu a sintaxe de classe em JavaScript, que é uma forma mais amigável de criar objetos com herança. As classes são uma abstração sobre a herança baseada em protótipos.
+
+        class Animal {
+          fazerSom() {
+            console.log("Som genérico");
+          }
+        }
+
+        class Cachorro extends Animal {
+          constructor(nome) {
+            super();
+            this.nome = nome;
+          }
+        }
+
+        let meuCachorro = new Cachorro("Rex");
+        meuCachorro.fazerSom(); // Saída: "Som genérico"
 
 
-JavaScript define outro tipo especial de objeto, conhecido como função. Uma função é um objeto que tem código executável associado. Uma função pode ser chamada para executar esse código executável e retornar um valor calculado. Assim como os arrays, as funções se comportam de maneira diferente dos outros tipos de objetos, sendo que JavaScript define uma sintaxe especial para trabalhar com elas. O mais importante a respeito das funções em JavaScript é que elas são valores reais e os programas em JavaScript podem tratá-las como objetos normais. As funções são abordadas no Capítulo 8.
-
-(Página 29). 
-Um objeto normal em JavaScript é um conjunto não ordenado de valores nomeados. A linguagem também define um tipo especial de objeto, conhecido como  __array__, que representa um conjunto ordenado de valores numerados. 
-
-Um objeto (isto é, um membro do tipo objeto) é um conjunto de propriedades, em que cada propriedade tem um nome e um valor (ou um valor primitivo, como um número ou string, ou um objeto).
-
-
-(Página 28). objeto 112 - 135 
-O interpretador JavaScript realiza a coleta de lixo automática para gerenciamento de memória. Isso significa que um programa pode criar objetos conforme for necessário e o programador nunca precisa se preocupar com a destruição ou desalocação desses objetos. Quando um objeto não pode mais ser acessado – quando um programa não tem mais maneira alguma de se referir a ele –, o interpretador sabe que ele nunca mais pode ser utilizado e recupera automaticamente o espaço de memória que ele estava ocupando.
-
-As funções que são escritas para serem usadas (com o operador new) para inicializar um objeto criado recentemente são conhecidas como construtoras. Cada construtora define uma classe de objetos – o conjunto de objetos inicializados por essa construtora. As classes podem ser consideradas como subtipos do tipo de objeto. Além das classes Array e Function, JavaScript básica define outras três classes úteis. A classe Date define objetos que representam datas. A classe RegExp define objetos que representam expressões regulares (uma poderosa ferramenta de comparação de padrões, descrita no Capítulo 10). E a classe Error define objetos que representam erros de sintaxe e de execução que podem ocorrer em um programa JavaScript.
-
-JavaScript básico inclui uma construtora Date() para criar objetos que representam datas e horas. Esses objetos Date têm métodos que fornecem uma API para cálculos simples de data. Os objetos Date não são um tipo fundamental como os números. Esta seção apresenta um estudo rápido sobre o trabalho com datas. Detalhes completos podem ser encontrados na seção de referência:
-
-(Página 34). 
 
 ### 7 - ARRAY 
 
-Representa uma lista ordenada de elementos.
+Em JavaScript, um array é uma estrutura de dados que permite armazenar e acessar múltiplos valores em uma única variável. Os arrays são especialmente úteis quando você precisa lidar com uma coleção de elementos, como números, strings, objetos ou até mesmo outros arrays.
 
-A linguagem JavaScript contém sintaxe especial para trabalhar com arrays, sendo que os arrays têm um comportamento especial que os diferencia dos objetos normais. Os arrays são o tema do Capítulo 7.
+Aqui estão algumas características dos arrays em JavaScript:
+
+1. __Criando um Array:__ Você pode criar um array utilizando a sintaxe de colchetes []. Dentro dos colchetes, você pode listar os elementos do array separados por vírgulas.
+
+        let numeros = [1, 2, 3, 4, 5];
+        let frutas = ["maçã", "banana", "laranja"];
+
+2. __Acessando Elementos:__ Você pode acessar os elementos de um array utilizando um índice numérico, começando a contagem a partir de zero.
+
+        console.log(numeros[0]); // Saída: 1
+        console.log(frutas[1]); // Saída: "banana"
+
+3. __Modificando Elementos:__ Você pode modificar os valores dos elementos de um array simplesmente atribuindo um novo valor ao índice correspondente.
+
+        numeros[2] = 10;
+        console.log(numeros); // Saída: [1, 2, 10, 4, 5]
+
+4. __Propriedade length:__ O array possui uma propriedade chamada length que indica o número de elementos no array.
+
+        console.log(frutas.length); // Saída: 3
+
+5. __Métodos de Array:__ JavaScript oferece uma série de métodos embutidos para manipular arrays, como push, pop, shift, unshift, splice, concat, slice, forEach, entre outros.
+
+        frutas.push("morango"); // Adiciona "morango" ao final do array
+        frutas.pop(); // Remove o último elemento do array
+
+6. __Arrays de Objetos:__ Você pode criar arrays que contenham objetos como elementos.
+
+        let pessoas = [
+          { nome: "Alice", idade: 30 },
+          { nome: "Bob", idade: 25 }
+        ];
+
 
 ### 8  - Function
 
@@ -735,11 +866,12 @@ Copy code
     }
 
 exemplo();
-Variáveis declaradas com let ou const:
+
+__Variáveis declaradas com let ou const:__
 Têm escopo de bloco, ou seja, existem apenas dentro do bloco de código em que foram declaradas, incluindo blocos aninhados dentro desse bloco.
 Existem apenas enquanto o bloco em que foram declaradas está ativo e são liberadas da memória quando o bloco é concluído.
-javascript
-Copy code
+
+
     function exemplo() {
     if (true) {
         let y = 20; // y existe apenas dentro do bloco if
@@ -750,12 +882,11 @@ Copy code
     // console.log(z); // Isso também causaria um erro, pois z não está disponível aqui
     }
 
-exemplo();
-Escopo global:
+
 Variáveis declaradas fora de funções têm escopo global e existem durante toda a execução do programa.
+
 Variáveis globais têm um tempo de vida mais longo e são mantidas na memória até o final da execução do programa.
-javascript
-Copy code
+
 
     let globalVar = "Sou global"; // Variável global, existe durante toda a execução do programa
 
@@ -763,7 +894,6 @@ Copy code
     console.log(globalVar); // Saída: "Sou global" (a variável globalVar pode ser acessada dentro da função)
     }
 
-exemplo();
 É importante lembrar que, após o tempo de vida de uma variável terminar (quando ela sai do escopo ou quando a execução do programa é concluída), a memória associada a essa variável é liberada automaticamente pelo garbage collector do JavaScript. Isso ajuda a evitar vazamento de memória e gerencia eficientemente os recursos do sistema.
 
 ### variavel estatica
@@ -840,7 +970,7 @@ Esse comportamento é diferente das variáveis primitivas, que armazenam diretam
 console.log(b); // Saída: 10, pois b tem uma cópia do valor original de a
 Portanto, em JavaScript, todas as variáveis, sejam primitivas ou objetos, são armazenadas no heap, mas o comportamento de cópia e atribuição difere entre os tipos de dados. O mecanismo de passagem por referência para objetos é importante para entender como as alterações em um objeto afetam outras variáveis que também fazem referência ao mesmo objeto.
 
-### literal numérico. 
+### literal numérico
 
 Quando um número aparece diretamente em um programa JavaScript, ele é chamado de literal numérico. JavaScript aceita literais numéricos em vários formatos, conforme descrito nas seções a seguir. Note que qualquer literal numérico pode ser precedido por um sinal de subtração (-) para tornar o número negativo. Tecnicamente, contudo, - é o operador de negação unário (consulte o Capítulo 4) e não faz parte da sintaxe de literal numérico.
 
@@ -959,3 +1089,183 @@ O JavaScript tem uma hierarquia de objetos de erro que podem ser usados para rep
       }
 
 O tratamento de erros é crucial para tornar seus programas mais robustos e identificar problemas antes que eles causem impacto negativo no funcionamento do aplicativo. Certifique-se de identificar os pontos em seu código que podem gerar exceções e implementar tratamentos apropriados para lidar com elas.
+
+# Expressões e operadores
+
+Expressões em JavaScript são combinações de valores, variáveis e operadores que produzem um resultado. Elas podem ser tão simples quanto uma única variável ou tão complexas quanto uma fórmula matemática ou uma combinação de operações. As expressões são a base para a criação de lógica e cálculos em programas.
+
+1. __Expressões Aritméticas:__ São expressões que envolvem operações matemáticas, como adição, subtração, multiplicação e divisão. Exemplos de expressões aritméticas:
+
+        let soma = 5 + 3;       // Expressão de adição
+        let multiplicacao = 4 * 6; // Expressão de multiplicação
+
+2. __Expressões Relacionais:__ São expressões que comparam valores e retornam um valor booleano (true ou false). Elas são frequentemente usadas para avaliar condições. Exemplos de expressões relacionais:
+
+        let maiorQue = 10 > 5;       // Expressão de comparação maior que
+        let igualA = 7 === "7";       // Expressão de igualdade restrita
+
+3. __Expressões Lógicas:__ São expressões que combinam valores booleanos usando operadores lógicos, como && (E) e || (OU). Elas são frequentemente usadas para criar condições complexas. Exemplos de expressões lógicas:
+
+        let condicao = (idade >= 18) && (temCarteira == true); // Expressão lógica
+4. __Expressões de Invocação (Chamadas de Funções):__ Também são consideradas expressões, pois representam a avaliação de uma função e podem retornar um valor.
+
+        let resultado = calcularSoma(10, 20); // Expressão de chamada de função
+
+5. __Expressões de Atribuição:__ São usadas para atribuir valores a variáveis.
+
+        let x = 42; // Expressão de atribuição
+
+6. __expressões de criação de objeto__ em JavaScript permitem que você crie novos objetos utilizando a sintaxe de chaves {}. Os objetos em JavaScript são coleções de propriedades, onde cada propriedade tem um nome (chave) e um valor associado. As expressões de criação de objeto permitem definir essas propriedades e seus valores iniciais.
+
+        // Criando um objeto vazio
+        let pessoa = {};
+
+        // Definindo propriedades no objeto 'objeto.propriedade'
+        pessoa.nome = "Alice";
+        pessoa.idade = 30;
+        pessoa.profissao = "Engenheira";
+
+        console.log(pessoa); // Saída: { nome: 'Alice', idade: 30, profissao: 'Engenheira' }
+        
+7. __Expressões de Acesso à Propriedade:__  permitem que você obtenha o valor de uma propriedade de um objeto utilizando a notação de ponto (objeto.propriedade) ou a notação de colchetes (objeto['propriedade']). Aqui estão exemplos de ambas as notações:
+
+        console.log(pessoa.nome); // Saída: "Alice"
+        console.log(pessoa['idade']); // Saída: 30
+
+8. __Inicializadores de Objeto e Array:__ são formas concisas de criar objetos e arrays com valores iniciais diretamente na sua declaração. Eles são definidos utilizando chaves {} para objetos e colchetes [] para arrays.
+
+inicializador de objeto:
+
+      let pessoa = {
+        nome: "Alice",
+        idade: 30
+      };
+
+inicializador de array:
+
+      let numeros = [1, 2, 3, 4, 5];
+
+### Operadores
+
+1. __Operador in:__ O operador in é usado para verificar se uma propriedade existe em um objeto. Ele retorna true se a propriedade especificada estiver no objeto ou em sua cadeia de protótipos.
+
+        let pessoa = { nome: "Alice", idade: 30 };
+        console.log("nome" in pessoa); // Saída: true
+        console.log("profissao" in pessoa); // Saída: false
+
+2. __Operador instanceof:__ O operador instanceof é usado para verificar se um objeto é uma instância de uma determinada classe ou construtor.
+
+        let objeto = new Date();
+        console.log(objeto instanceof Date); // Saída: true
+        console.log(objeto instanceof Array); // Saída: false
+
+3. __eval():__ espera um único argumento. Se for passado qualquer valor que não seja uma string, ela simplesmente retorna esse valor. Se for passada uma string, ela tenta analisar a string como código JavaScript, lançando uma exceção SyntaxError em caso de falha. Se conseguir analisar a string, então ela avalia o código e retorna o valor da última expressão ou instrução da string ou undefined, caso a última expressão ou instrução não tenha valor algum. Se a string avaliada lança uma exceção, essaexceção é propagada a partir da chamada a eval().
+
+        let codigo = "console.log('Olá, mundo!');";
+        eval(codigo); // Saída: "Olá, mundo!"
+
+4. __Operador typeof:__ O operador typeof é usado para verificar o tipo de um valor. Ele retorna uma string que indica o tipo do valor.
+
+        console.log(typeof 42); // Saída: "number"
+        console.log(typeof "Olá"); // Saída: "string"
+
+
+5. __Operador delete:__ O operador delete é usado para remover uma propriedade de um objeto ou para remover um elemento de um array.
+
+        let pessoa = { nome: "Alice", idade: 30 };
+        delete pessoa.idade;
+        console.log(pessoa); // Saída: { nome: "Alice" }
+
+6. __Operador void:__ O operador void é usado para avaliar uma expressão sem retornar um valor definido. Ele é frequentemente usado para forçar a execução de um código sem retornar algo que possa ser atribuído a uma variável.
+
+          let resultado = void console.log("Execução completa");
+          // Saída: "Execução completa"
+          console.log(resultado); // Saída: undefined
+
+7. __Operador Vírgula ,:__ O operador de vírgula permite que você execute múltiplas expressões separadas por vírgulas, avaliando cada uma delas e retornando o valor da última expressão.
+
+          let a = 1, b = 2, c = 3;
+          console.log(a, b, c); // Saída: 1 2 3
+
+As expressões relacionais e os operadores discutidos são partes importantes da linguagem JavaScript e são usados para realizar comparações, avaliar expressões e executar ações específicas em seu código.
+
+# Subprogramas 
+
+Subprogramas em JavaScript referem-se a blocos de código reutilizáveis que podem ser chamados várias vezes a partir de diferentes partes do programa. Eles também são conhecidos como funções. Subprogramas são uma maneira de modularizar o código, tornando-o mais organizado, reutilizável e mais fácil de entender. Em JavaScript, você pode definir subprogramas usando a palavra-chave function. Existem dois tipos principais de subprogramas em JavaScript:
+
+1. __Funções:__ 
+
+        function nomeDaFuncao(parametro1, parametro2) {
+          // Código da função
+          return resultado;
+        }
+
+        exemplo:
+
+        function soma(a, b) {
+          return a + b;
+        }
+
+        let resultado = soma(3, 5); // Chama a função
+
+2. __Expressões de Funções Anônimas:__ Uma função anônima é definida como uma expressão e geralmente é atribuída a uma variável ou passada como argumento para outra função.
+
+        function aplicarOperacao(array, operacao) {
+        const resultado = [];
+          for (const elemento of array) {
+            resultado.push(operacao(elemento));
+          }
+          return resultado;
+        }
+
+        function dobrar(numero) {
+          return numero * 2;
+        }
+
+        const numeros = [1, 2, 3];
+        const dobrados = aplicarOperacao(numeros, dobrar);
+        console.log(dobrados); // Saída: [2, 4, 6]
+
+
+3. __Arrow Functions:__ As arrow functions são uma forma mais curta e concisa de escrever funções anônimas em JavaScript.
+
+        const nomeDaFuncao = (parametro1, parametro2) => {
+          // Código da função
+          return resultado;
+        };
+
+        Exemplo:
+
+        const potencia = (base, expoente) => base ** expoente;
+
+        let resultado = potencia(2, 3); // Chama a função
+
+### Passagem de Parâmetros:
+
+A passagem de parâmetros envolve a transferência de valores de uma parte do programa para outra, geralmente entre funções. Em JavaScript, os parâmetros podem ser passados para funções quando elas são chamadas. Os valores passados podem ser usados dentro da função para realizar operações.
+
+Tipos de Passagem de Parâmetros:
+
+__Passagem por Valor:__ Nesse tipo, uma cópia do valor real do parâmetro é passada para a função. As alterações feitas nos parâmetros dentro da função não afetam os valores originais fora da função.
+
+__Passagem por Referência:__ Aqui, um referência ao valor real (um endereço de memória) é passado para a função. Isso significa que as alterações feitas nos parâmetros dentro da função afetam os valores originais fora da função.
+
+Implementação de Passagem de Parâmetro:
+
+      // Passagem por valor (tipos primitivos)
+      function incrementar(numero) {
+        numero++;
+      }
+
+      let valor = 5;
+      incrementar(valor); // O valor não é alterado fora da função
+      console.log(valor); // Saída: 5
+
+      // Passagem por referência (objetos e arrays)
+      function modificarArray(arr) {
+        arr.push(42);
+      }
+
+      let meuArray = [1, 2, 3];
+      modificarArray(meuArray); // O array é alterado fora da função
+      console.log(meuArray); // Saída: [1, 2, 3, 42]
