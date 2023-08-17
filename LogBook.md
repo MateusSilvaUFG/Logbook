@@ -9,7 +9,6 @@ Logbook for Programming Languages ​​and Paradigms
 4. [Tipos, valores e variáveis](#tipos-valores-e-variáveis)
 
 # Introdução
-
 Introdução ao JavaScript e suas Aplicações:
 
 JavaScript é uma das linguagens de programação mais populares e versáteis do mundo da tecnologia. Criada em 1995 por Brendan Eich, inicialmente para melhorar a experiência de interação dos usuários com páginas web, o JavaScript tornou-se uma linguagem essencial para o desenvolvimento front-end e back-end.
@@ -192,6 +191,14 @@ JavaScript aceita dois estilos de comentários.
       }
 
 * Loop while:
+
+      let contador = 0;
+
+      while (contador < 5) {
+        console.log("Contador: " + contador);
+        contador++;
+      }
+
 
 ### Funções:
 
@@ -446,8 +453,7 @@ JavaScript é uma linguagem orientada a objetos. Isso significa que, em vez de t
 JavaScript define outro tipo especial de objeto, conhecido como função. Uma função é um objeto que tem código executável associado. Uma função pode ser chamada para executar esse código executável e retornar um valor calculado. Assim como os arrays, as funções se comportam de maneira diferente dos outros tipos de objetos, sendo que JavaScript define uma sintaxe especial para trabalhar com elas. O mais importante a respeito das funções em JavaScript é que elas são valores reais e os programas em JavaScript podem tratá-las como objetos normais. As funções são abordadas no Capítulo 8.
 
 (Página 29). 
-Um objeto normal em JavaScript é um conjunto não ordenado de valores nomeados. A linguagem também define um tipo especial de objeto, conhecido como 
-__array__, que representa um conjunto ordenado de valores numerados. 
+Um objeto normal em JavaScript é um conjunto não ordenado de valores nomeados. A linguagem também define um tipo especial de objeto, conhecido como  __array__, que representa um conjunto ordenado de valores numerados. 
 
 Um objeto (isto é, um membro do tipo objeto) é um conjunto de propriedades, em que cada propriedade tem um nome e um valor (ou um valor primitivo, como um número ou string, ou um objeto).
 
@@ -479,7 +485,7 @@ Function: Representa um bloco de código reutilizável que pode ser chamado por 
     saudacao("Mateus");
 
 
-### tipo  registro
+### Tipo Registro
 
 Em JavaScript, você pode criar objetos que são coleções de pares chave-valor, onde as chaves são strings (ou símbolos) que representam os campos e os valores são os dados associados a esses campos. Essa é uma maneira eficaz de criar estruturas de dados semelhantes a registros. Aqui está um exemplo de como criar e usar um objeto em JavaScript:
 
@@ -499,13 +505,13 @@ Além disso, a partir do ECMAScript 2015 (ES6), JavaScript também introduziu o 
 
 Portanto, embora JavaScript não possua um tipo de dado específico chamado "Registro", a flexibilidade dos objetos e a introdução dos "Maps" permitem que você crie estruturas de dados semelhantes a registros para armazenar informações relacionadas.
 
-### tipo de dado MAP
+### Tipo MAP
 
 Em JavaScript, o tipo de dado "Map" é uma estrutura que permite armazenar coleções de pares chave-valor, onde tanto as chaves quanto os valores podem ser de qualquer tipo. O "Map" é uma alternativa mais flexível e poderosa aos objetos quando se trata de criar estruturas de dados complexas que requerem mapeamento de chaves para valores.
 
 A principal diferença entre "Map" e objetos em JavaScript é que os "Map" permitem usar qualquer tipo de dado como chave, incluindo tipos de dados complexos como objetos e funções, enquanto os objetos permitem apenas usar strings e símbolos como chaves.
 
-Aqui está um exemplo de como criar e usar um "Map" em JavaScript:
+Exemplo de como criar e usar um "Map" em JavaScript:
 
     // Criando um Map
     var meuMap = new Map();
@@ -531,7 +537,8 @@ Aqui está um exemplo de como criar e usar um "Map" em JavaScript:
 
 Ao usar "Map", você pode mapear praticamente qualquer tipo de dado a um valor correspondente e aproveitar métodos como set, get, has, delete, entre outros, para manipular a coleção. "Map" é especialmente útil quando você precisa armazenar pares chave-valor e a flexibilidade das chaves é importante.
 
-###  Tipo União?
+###  Tipo União
+O tipo união (também conhecido como união de tipos ou union type em inglês) é um conceito em programação de computadores que permite que uma variável, parâmetro ou propriedade possa conter valores de diferentes tipos
 
 JavaScript não possui nativamente um tipo de dado chamado "União" (Union type) como é encontrado em algumas outras linguagens de programação, como TypeScript ou Kotlin. Um tipo de união permite que uma variável possa conter valores de diferentes tipos especificados.
 
@@ -547,42 +554,28 @@ Embora JavaScript não tenha tipos de união incorporados como em outras linguag
     valor = "Olá"; // atribui uma string
     }
 
-Se você deseja obter recursos semelhantes aos tipos de união de linguagens como TypeScript, você pode considerar usar TypeScript em vez do JavaScript padrão. TypeScript é um superset de JavaScript que adiciona tipagem estática opcional e outros recursos de linguagem, incluindo tipos de união. Com TypeScript, você pode definir explicitamente tipos de união para uma variável, permitindo que ela possua diferentes tipos em diferentes situações.
-
-# DOM 
-
+# modelo de programação - DOM 
 O DOM (Document Object Model) em JavaScript é uma representação hierárquica dos elementos HTML (ou XML) de uma página da web. Ele permite que os scripts em JavaScript interajam com os elementos e o conteúdo de uma página, alterando dinamicamente a estrutura, o estilo e o comportamento do documento. O DOM é uma parte fundamental da programação web e é amplamente usado para criar interatividade e dinamismo nas páginas da web.
 
-Aqui estão alguns conceitos-chave relacionados ao DOM em JavaScript:
+conceitos relacionados ao DOM em JavaScript:
 
-Árvore DOM:
+__Árvore DOM:__ O DOM organiza os elementos HTML (como tags __div__, __p__, __h1__, etc.) em uma estrutura de árvore. Cada elemento é representado como um nó na árvore, com o nó raiz representando o documento inteiro. Os elementos podem ter filhos (elementos aninhados) e irmãos (elementos no mesmo nível hierárquico).
 
-      O DOM organiza os elementos HTML (como tags <div>, <p>, <h1>, etc.) em uma estrutura de árvore. Cada elemento é representado como um nó na árvore, com o nó raiz representando o documento inteiro. Os elementos podem ter filhos (elementos aninhados) e irmãos (elementos no mesmo nível hierárquico).
+__Acesso e Manipulação:__ Com JavaScript, você pode acessar e manipular o DOM usando métodos e propriedades fornecidos pela API do DOM. Isso inclui alterar conteúdo, estilos, atributos e até mesmo adicionar ou remover elementos da página.
 
-Acesso e Manipulação:
+__Seleção de Elementos:__ Para interagir com elementos específicos, você pode usar métodos como getElementById, querySelector, querySelectorAll para selecionar elementos com base em seus identificadores, classes, nomes de tag e outros seletores CSS.
 
-Com JavaScript, você pode acessar e manipular o DOM usando métodos e propriedades fornecidos pela API do DOM. Isso inclui alterar conteúdo, estilos, atributos e até mesmo adicionar ou remover elementos da página.
+__Eventos:__ O DOM permite que você associe eventos a elementos, como cliques de mouse, pressionamentos de tecla e muito mais. Você pode usar os métodos addEventListener ou atributos de eventos HTML para lidar com eventos e executar ações específicas quando eles ocorrem.
 
-Seleção de Elementos:
-Para interagir com elementos específicos, você pode usar métodos como getElementById, querySelector, querySelectorAll para selecionar elementos com base em seus identificadores, classes, nomes de tag e outros seletores CSS.
+__Alteração de Conteúdo:__ Você pode modificar o conteúdo de um elemento, como textos e HTML interno, usando propriedades como textContent e innerHTML.
 
-Eventos:
-O DOM permite que você associe eventos a elementos, como cliques de mouse, pressionamentos de tecla e muito mais. Você pode usar os métodos addEventListener ou atributos de eventos HTML para lidar com eventos e executar ações específicas quando eles ocorrem.
+__Estilos CSS:__ O DOM permite a manipulação de estilos CSS de elementos usando propriedades como style. Você pode alterar cores, tamanhos, margens e outros estilos diretamente por meio do JavaScript.
 
-Alteração de Conteúdo:
-Você pode modificar o conteúdo de um elemento, como textos e HTML interno, usando propriedades como textContent e innerHTML.
+__Adição e Remoção de Elementos:__ Você pode criar novos elementos usando o método createElement e adicioná-los ao DOM com appendChild ou insertBefore. Também é possível remover elementos usando o método removeChild.
 
-Estilos CSS:
-O DOM permite a manipulação de estilos CSS de elementos usando propriedades como style. Você pode alterar cores, tamanhos, margens e outros estilos diretamente por meio do JavaScript.
+__Manipulação de Atributos:__  Você pode alterar ou obter valores de atributos de elementos usando métodos como getAttribute, setAttribute e removeAttribute.
 
-Adição e Remoção de Elementos:
-Você pode criar novos elementos usando o método createElement e adicioná-los ao DOM com appendChild ou insertBefore. Também é possível remover elementos usando o método removeChild.
-
-Manipulação de Atributos:
-Você pode alterar ou obter valores de atributos de elementos usando métodos como getAttribute, setAttribute e removeAttribute.
-
-Navegação no DOM:
-Você pode navegar pelo DOM movendo-se entre os elementos pai, filhos e irmãos usando propriedades como parentNode, childNodes, nextSibling e previousSibling.
+__Navegação no DOM:__ Você pode navegar pelo DOM movendo-se entre os elementos pai, filhos e irmãos usando propriedades como parentNode, childNodes, nextSibling e previousSibling.
 
 O DOM é uma parte essencial da programação JavaScript para a web e permite que os desenvolvedores criem páginas interativas e dinâmicas. Ao compreender e usar efetivamente o DOM, você pode criar experiências de usuário mais envolventes e funcionais.
 
@@ -644,59 +637,6 @@ Por exemplo:
     console.log(typeof valor); // Saída: "string"
 
 Essa natureza dinâmica da verificação de tipo em JavaScript oferece flexibilidade, mas também pode levar a erros se não for tratada com cuidado. É importante estar ciente de como os tipos podem mudar em diferentes partes do código e escrever verificações apropriadas para garantir o comportamento esperado.
-
-
-### tratamento de erro em java script
-
-O tratamento de erros em JavaScript é uma prática importante para lidar com situações imprevistas que possam ocorrer durante a execução do código. Erros podem ser causados por erros de sintaxe, erros lógicos, exceções lançadas por funções ou problemas de rede, entre outros. Aqui estão algumas maneiras de lidar com erros em JavaScript:
-
-Bloco try...catch:
-
-O bloco try é usado para envolver o código que você acredita que pode gerar um erro. Se um erro ocorrer dentro do bloco try, ele é capturado pelo bloco catch, permitindo que você tome medidas para lidar com o erro.
-
-      try {
-        // Código que pode gerar um erro
-      } catch (erro) {
-        // Tratamento do erro
-      }
-
-Lançamento de Exceções:
-
-Você pode usar a palavra-chave throw para lançar uma exceção em JavaScript. Isso permite que você crie e personalize seus próprios tipos de erros para situações específicas.
-
-      function dividir(a, b) {
-        if (b === 0) {
-          throw new Error("Divisão por zero não é permitida.");
-        }
-        return a / b;
-      }
-
-Bloco try...catch...finally:
-
-O bloco finally é opcional e é usado para conter código que será executado independentemente de ocorrer ou não um erro dentro do bloco try.
-
-      try {
-        // Código que pode gerar um erro
-      } catch (erro) {
-        // Tratamento do erro
-      } finally {
-        // Código executado sempre
-      }
-Objeto Error:
-
-O JavaScript tem uma hierarquia de objetos de erro que podem ser usados para representar diferentes tipos de erros. Por exemplo, Error, SyntaxError, TypeError, entre outros.
-
-      try {
-        // Código que pode gerar um erro
-      } catch (erro) {
-        if (erro instanceof SyntaxError) {
-          console.error("Erro de sintaxe:", erro.message);
-        } else {
-          console.error("Erro:", erro.message);
-        }
-      }
-
-O tratamento de erros é crucial para tornar seus programas mais robustos e identificar problemas antes que eles causem impacto negativo no funcionamento do aplicativo. Certifique-se de identificar os pontos em seu código que podem gerar exceções e implementar tratamentos apropriados para lidar com elas.
 
 ### Escopo
 
@@ -882,22 +822,20 @@ Quando você cria um objeto em JavaScript, a alocação de memória para esse ob
 
 Exemplo:
 
-javascript
-Copy code
-let objeto1 = { nome: "João" }; // Cria um objeto no heap e armazena a referência em objeto1
-let objeto2 = objeto1; // objeto2 agora contém a mesma referência que objeto1
 
-objeto1.nome = "Maria"; // Altera o objeto1 (e também o objeto2, pois ambos apontam para o mesmo objeto)
+    let objeto1 = { nome: "João" }; // Cria um objeto no heap e armazena a referência em objeto1
+    let objeto2 = objeto1; // objeto2 agora contém a mesma referência que objeto1
 
-console.log(objeto2.nome); // Saída: "Maria", pois objeto2 é uma referência ao mesmo objeto que objeto1
+    objeto1.nome = "Maria"; // Altera o objeto1 (e também o objeto2, pois ambos apontam para o mesmo objeto)
+
+    console.log(objeto2.nome); // Saída: "Maria", pois objeto2 é uma referência ao mesmo objeto que objeto1
+
 Esse comportamento é diferente das variáveis primitivas, que armazenam diretamente o valor. Quando você copia ou atribui uma variável primitiva a outra, o valor é copiado, e as duas variáveis têm valores independentes.
 
-javascript
-Copy code
-let a = 10;
-let b = a; // b recebe uma cópia do valor de a
+  let a = 10;
+  let b = a; // b recebe uma cópia do valor de a
 
-a = 20; // Altera o valor de a, mas não afeta b
+  a = 20; // Altera o valor de a, mas não afeta b
 
 console.log(b); // Saída: 10, pois b tem uma cópia do valor original de a
 Portanto, em JavaScript, todas as variáveis, sejam primitivas ou objetos, são armazenadas no heap, mas o comportamento de cópia e atribuição difere entre os tipos de dados. O mecanismo de passagem por referência para objetos é importante para entender como as alterações em um objeto afetam outras variáveis que também fazem referência ao mesmo objeto.
@@ -910,19 +848,19 @@ Quando um número aparece diretamente em um programa JavaScript, ele é chamado 
 
 Em um programa JavaScript, um inteiro de base 10 é escrito como uma sequência de dígitos. Por exemplo:
 
-0 3 10000000 
+    0 3 10000000 
 
 Além dos literais inteiros de base 10, JavaScript reconhece valores hexadecimais (base 16). Um literal hexadecimal começa com “0x” ou “0X”, seguido por uma sequência de dígitos hexadecimais. Um dígito hexadecimal é um dos algarismos de 0 a 9 ou as letras a (ou A) até f (ou F), as quais representam valores de 10 a 15. Aqui estão exemplos de literais inteiros hexadecimais:
 
-0xff // 15*16 + 15 = 255 (base 10)
+    0xff // 15*16 + 15 = 255 (base 10)
 
-0xCAFE911
+    0xCAFE911
 
 Embora o padrão ECMAScript não ofereça suporte para isso, algumas implementações de JavaScript permitem especificar literais inteiros no formato octal (base 8). Um literal em octal começa com o dígito 0 e é seguido por uma sequência de dígitos, cada um entre 0 e 7. Por exemplo:
 
-0377 // 3*64 + 7*8 + 7 = 255 (base 10)
+    0377 // 3*64 + 7*8 + 7 = 255 (base 10)
 
-Como algumas implementações aceitam literais em octal e algumas não, você nunca deve escrever um literal inteiro com um zero à esquerda; nesse caso, não dá para saber se uma implementação vai interpretá-la como um valor octal ou decimal. No modo restrito de ECMAScript 5 (Seção 5.7.3), os literais em octal são proibidos explicitamente.
+Como algumas implementações aceitam literais em octal e algumas não, você nunca deve escrever um literal inteiro com um zero à esquerda; nesse caso, não dá para saber se uma implementação vai interpretá-la como um valor octal ou decimal. No modo restrito de ECMAScript 5 (Seção 5.7.3), os literais em oc tal são proibidos explicitamente.
 
 2. literais em ponto flutuantes
 
@@ -940,9 +878,6 @@ Mais sucintamente, a sintaxe é:
     .333333333333333333
     6.02e23 // 6.02 × 10^23
     1.4738223E-32 // 1.4738223 × 10−32
-
-(Página 31). 
-
 
 ### Aritmética em JavaScript 
 
@@ -971,3 +906,56 @@ A aritmética em JavaScript não gera erros em casos de estouro, estouro negativ
 1. __Estouro Negativo:__ Ocorre quando o resultado de uma operação numérica é mais próximo de zero do que o menor número representável. Nesse caso, JavaScript retorna 0 ou "zero negativo", que é quase indistinguível do zero normal.
 2. __Divisão por Zero:__ Em JavaScript, a divisão por zero não gera um erro, mas retorna infinito ou infinito negativo. A única exceção é a divisão de zero por zero, que retorna o valor especial "NaN" (Not-a-Number).
 3. __NaN (Not-a-Number):__ É um valor especial que surge em várias situações, como dividir infinito por infinito, extrair a raiz quadrada de um número negativo ou usar operadores aritméticos com operandos não numéricos que não podem ser convertidos em números.
+
+### tratamento de erro em java script
+
+O tratamento de erros em JavaScript é uma prática importante para lidar com situações imprevistas que possam ocorrer durante a execução do código. Erros podem ser causados por erros de sintaxe, erros lógicos, exceções lançadas por funções ou problemas de rede, entre outros. Aqui estão algumas maneiras de lidar com erros em JavaScript:
+
+__Bloco try...catch:__
+
+O bloco try é usado para envolver o código que você acredita que pode gerar um erro. Se um erro ocorrer dentro do bloco try, ele é capturado pelo bloco catch, permitindo que você tome medidas para lidar com o erro.
+
+      try {
+        // Código que pode gerar um erro
+      } catch (erro) {
+        // Tratamento do erro
+      }
+
+__Lançamento de Exceções:__
+
+Você pode usar a palavra-chave throw para lançar uma exceção em JavaScript. Isso permite que você crie e personalize seus próprios tipos de erros para situações específicas.
+
+      function dividir(a, b) {
+        if (b === 0) {
+          throw new Error("Divisão por zero não é permitida.");
+        }
+        return a / b;
+      }
+
+__Bloco try...catch...finally:__
+
+O bloco finally é opcional e é usado para conter código que será executado independentemente de ocorrer ou não um erro dentro do bloco try.
+
+      try {
+        // Código que pode gerar um erro
+      } catch (erro) {
+        // Tratamento do erro
+      } finally {
+        // Código executado sempre
+      }
+
+__Objeto Error:__
+
+O JavaScript tem uma hierarquia de objetos de erro que podem ser usados para representar diferentes tipos de erros. Por exemplo, Error, SyntaxError, TypeError, entre outros.
+
+      try {
+        // Código que pode gerar um erro
+      } catch (erro) {
+        if (erro instanceof SyntaxError) {
+          console.error("Erro de sintaxe:", erro.message);
+        } else {
+          console.error("Erro:", erro.message);
+        }
+      }
+
+O tratamento de erros é crucial para tornar seus programas mais robustos e identificar problemas antes que eles causem impacto negativo no funcionamento do aplicativo. Certifique-se de identificar os pontos em seu código que podem gerar exceções e implementar tratamentos apropriados para lidar com elas.
