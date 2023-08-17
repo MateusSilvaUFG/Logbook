@@ -54,65 +54,41 @@ A interpretação do JavaScript traz algumas vantagens, como a portabilidade do 
 
 No entanto, a interpretação pode ser mais lenta em comparação com linguagens compiladas, especialmente para operações intensivas em processamento. Para melhorar o desempenho, os navegadores modernos também usam otimização JIT, que transforma trechos de código frequentemente usados em código nativo otimizado para a plataforma em questão, acelerando sua execução.
 
-## 1 Estruruta léxica
+# Sintaxa Básica
 
-A estrutura léxica de uma linguagem de programação é o conjunto de regras elementares que especificam o modo de escrever programas nessa linguagem. É a sintaxe de nível mais baixo de uma
-linguagem; especifica detalhes de como são os nomes de variáveis, os caracteres delimitadores para
-comentários e como uma instrução do programa é separada da seguinte.
 
-### conjunto de caracteres
 
-Os programas JavaScript são escritos com o conjunto de caracteres Unicode. Unicode é um superconjunto de ASCII e Latin-1 e suporta praticamente todos os idiomas escritos usados hoje no
-planeta
+JavaScript é uma linguagem de programação de alto nível amplamente utilizada para desenvolvimento web e outras aplicações interativas. A seguir, apresento a sintaxe e a semântica básica do JavaScript:
 
-### Diferenciação de maiúsculas e minúsculas
+###  Estruruta léxica
 
-JavaScript é uma linguagem que diferencia letras maiúsculas de minúsculas. Isso significa que palavras-chave, variáveis, nomes de função e outros identificadores da linguagem sempre devem ser digitados com a composição compatível de letras. A palavra-chave while, por exemplo, deve ser digitada
-como “while” e não como “While” ou “WHILE.” Da mesma forma, online, Online, OnLine e ONLINE
-são quatro nomes de variável distintos.
+A *estrutura léxica* de uma linguagem de programação é o conjunto de regras elementares que especificam o modo de escrever programas nessa linguagem. É a sintaxe de nível mais baixo de uma linguagem; especifica detalhes de como são os nomes de variáveis, os caracteres delimitadores para comentários e como uma instrução do programa é separada da seguinte.
 
-### Sequências de escape Unicode
-Alguns componentes de hardware e software de computador não conseguem exibir ou introduzir o
-conjunto completo de caracteres Unicode. Para ajudar os programadores que utilizam essa tecnologia mais antiga, JavaScript define sequências especiais de seis caracteres ASCII para representar qualquer código Unicode de 16 bits. Esses escapes Unicode começam com os caracteres \u e são seguidos
-por exatamente quatro dígitos hexadecimais (usando as letras A–F maiúsculas ou minúsculas). Os
-escapes Unicode podem aparecer em strings literais, expressões regulares literais e em identificadores
-JavaScript (mas não em palavras-chave da linguagem). O escape Unicode para o caractere “é”, por
-exemplo, é \u00E9, e as duas strings JavaScript a seguir são idênticas:
+Ao declarar variáveis em JavaScript, é importante seguir algumas regras para garantir que o código seja válido e compreensível. Aqui estão as principais regras para declarar nomes de variáveis em JavaScript:
 
-      "café" === "caf\u00e9" // => true
-  
-Os escapes Unicode também podem aparecer em comentários, mas como os comentários são ignorados, eles são tratados como caracteres ASCII nesse contexto e não são interpretados como
-Unicode.
+1. __Sintaxe:__
+* Os nomes de variáveis devem começar com uma letra (maiúscula ou minúscula), _ (underscore) ou $ (cifrão).
+* Após o primeiro caractere, você pode usar letras, números, _ ou $.
 
-### Normalização
-O Unicode permite mais de uma maneira de codificar o mesmo caractere. A string “é”, por exemplo, pode ser codificada como o caractere Unicode \u00E9 ou como um caractere ASCII “e” normal, seguido da marca de combinação de acento agudo \u0301. Essas duas codificações podem parecer exatamente a mesma quando exibidas por um editor de textos, mas têm diferentes codificações binárias e são consideradas diferentes pelo computador. O padrão Unicode define a codificação preferida para todos os caracteres e especifica um procedimento de normalização para converter texto em uma forma canônica conveniente para comparações. JavaScript presume que o código-fonte que
-está interpretando já foi normalizado e não tenta normalizar identificadores, strings nem expressões
-regulare
+2. __Case-Sensitivity:__
+* JavaScript é sensível a maiúsculas e minúsculas, o que significa que minhaVariavel e MinhaVariavel são consideradas diferentes.
+* Palavras-chave, variáveis, nomes de função e outros identificadores da linguagem sempre devem ser digitados com a composição compatível de letras. A palavra-chave while, por exemplo, deve ser digitada como “while” e não como “While” ou “WHILE.” Da mesma forma, online, Online, OnLine e ONLINE, são quatro nomes de variável distintos.
 
-### Comentários
-JavaScript aceita dois estilos de comentários. Qualquer texto entre // e o final de uma linha é tratado
-como comentário e é ignorado por JavaScript. Qualquer texto entre os caracteres /* e */ também é
-tratado como comentário; esses comentários podem abranger várias linhas, mas não podem ser aninhados. As linhas de código a seguir são todas comentários JavaScript válidos:
+3. __Palavras Reservadas:__
+* Você não pode usar palavras reservadas do JavaScript como nomes de variáveis. Por exemplo, não é possível criar uma variável chamada function, if, else, for, entre outras.
 
-            // Este é um comentário de uma linha.
-            /* Este também é um comentário */ // e aqui está outro comentário.
-            /*
-            * Este é ainda outro comentário.
-            * Ele tem várias linhas.
-            */
-### Literais
-Um literal é um valor de dados que aparece diretamente em um programa. Os valores seguintes são
+4. Boas Práticas de Nomenclatura:
 
-todos literais:
+* Use nomes significativos que descrevam o propósito da variável.
+* Use camelCase para nomes de variáveis compostos, onde a primeira palavra começa com minúscula e as palavras subsequentes começam com maiúscula (por exemplo, nomeDoUsuario).
+* Evite usar nomes muito curtos ou muito genéricos, pois isso pode dificultar a compreensão do código.
+* Use nomes descritivos em vez de abreviações obscuras.
 
-      12 // O número doze
-      1.2 // O número um ponto dois
-      "hello world" // Uma string de texto
-      'Hi' // Outra string
-      true // Um valor booleano
-      false // O outro valor booleano
-      /javascript/gi // Uma "expressão regular" literal (para comparação de padrões)
-      null // Ausência de um objeto
+5. Unicode:
+* JavaScript suporta caracteres Unicode em nomes de variáveis. Isso permite usar caracteres acentuados, símbolos e outros caracteres Unicode, mas não é recomendado para manter a legibilidade.
+Exemplos válidos de declaração de variáveis:
+
+Exemplos válidos de declaração de variáveis e sintaxe básica:
 
 ### identificadores
 
@@ -120,10 +96,11 @@ Em JavaScript, um identificador é um nome utilizado para identificar variáveis
 
 As regras para formar identificadores em JavaScript são as seguintes:
 
-Um identificador pode conter letras (maiúsculas e minúsculas), dígitos (0-9) e os caracteres especiais _ (underscore) e $ (cifrão).
-Um identificador deve começar com uma letra, _ ou $. Ele não pode começar com um dígito.
-Não é permitido o uso de espaços em um identificador.
-O identificador pode ser qualquer sequência de caracteres válidos que não seja uma palavra reservada (palavras que possuem significado específico na linguagem e não podem ser usadas como identificadores).
+* Um identificador pode conter letras (maiúsculas e minúsculas), dígitos (0-9) e os caracteres especiais _ (underscore) e $ (cifrão).
+* Um identificador deve começar com uma letra, _ ou $. Ele não pode começar com um dígito.
+* Não é permitido o uso de espaços em um identificador.
+* O identificador pode ser qualquer sequência de caracteres válidos que não seja uma palavra reservada (palavras que possuem significado específico na linguagem e não podem ser usadas como identificadores).
+
 Exemplos de identificadores válidos em JavaScript:
 
       let nome;
@@ -141,6 +118,153 @@ Exemplos de identificadores inválidos (que causariam erro de sintaxe):
       
 É importante escolher nomes significativos e descritivos para identificadores, para que o código seja mais legível e compreensível para outras pessoas que venham a ler o seu código.
 
+## final de identificadores
+
+1. Comentários:
+
+### Comentários
+
+JavaScript aceita dois estilos de comentários. Qualquer texto entre // e o final de uma linha é tratado como comentário e é ignorado por JavaScript. Qualquer texto entre os caracteres /* e */ também é
+tratado como comentário; esses comentários podem abranger várias linhas, mas não podem ser aninhados. As linhas de código a seguir são todas comentários JavaScript válidos:
+
+            // Este é um comentário de uma linha.
+            /* Este também é um comentário */ // e aqui está outro comentário.
+            /*
+            * Este é ainda outro comentário.
+            * Ele tem várias linhas.
+            */
+
+### final de cimentarios
+        // Este é um comentário de uma linha
+        /*
+        Este é um comentário
+        de múltiplas linhas
+        */
+
+2. Variáveis e Atribuição:
+
+        let nome = "Alice";
+        const idade = 25;
+        var contador = 0; // Escopo global (menos recomendado)
+
+3. Tipos de Dados:
+
+        let numero = 42;          // Número
+        let texto = "Olá, mundo"; // String
+        let booleano = true;      // Booleano (true/false)
+        let nulo = null;          // Valor nulo
+        let indefinido;           // Valor indefinido
+        let objeto = { chave: "valor" }; // Objeto
+        let array = [1, 2, 3];     // Array
+
+4. Operadores Aritméticos:
+
+        let soma = 5 + 3;
+        let subtracao = 10 - 4;
+        let multiplicacao = 6 * 2;
+        let divisao = 12 / 3;
+        let modulo = 7 % 3; // Resto da divisão
+
+5. peradores de Comparação:
+
+        let igualdade = 5 === "5"; // Igualdade estrita (valor e tipo)
+        let desigualdade = 10 !== 5; // Diferente estrito
+        let maior = 7 > 3;
+        let menorOuIgual = 4 <= 4;
+
+#### Estruturas de Controle: 
+
+* Condicional if:
+
+      if (condicao) {
+        // Código executado se a condição for verdadeira
+      } else {
+        // Código executado se a condição for falsa
+      }
+* Loop for:
+
+        for (let i = 0; i < 5; i++) {
+        // Código executado em cada iteração
+      }
+
+* Loop while:
+
+#### Funções:
+
+      function saudacao(nome) {
+        return "Olá, " + nome;
+      }
+      
+      let mensagem = saudacao("Alice"); // Retorna "Olá, Alice"
+      
+# Semântica Básica:
+
+JavaScript é uma linguagem de programação interpretada, o que significa que o código é executado diretamente pelo interpretador do navegador ou ambiente de execução. A semântica básica do JavaScript inclui:
+
+O fluxo de controle é determinado pelas estruturas de controle condicional (if/else) e de loop (for, while).
+
+As variáveis são tipadas dinamicamente, o que significa que você não precisa declarar explicitamente o tipo.
+
+Valores undefined e null são usados para representar valores ausentes ou não definidos.
+
+Os objetos são usados para agrupar valores relacionados em pares chave-valor.
+
+Funções permitem a reutilização de código e podem ser passadas como argumentos ou retornadas de outras funções.
+
+
+Semântica Estática:
+A semântica estática se refere à análise de um programa antes da execução, visando identificar erros e verificar propriedades do código sem a necessidade de executá-lo. Isso inclui a verificação de tipos, análise de escopo, análise de fluxo de controle, entre outros. Em JavaScript, ferramentas como linters e o próprio compilador do TypeScript fornecem análise estática para identificar erros e melhorar a qualidade do código.
+
+Semântica Dinâmica:
+A semântica dinâmica se concentra no comportamento de um programa durante a execução. Isso inclui a forma como as instruções são executadas e como os valores são calculados em tempo de execução. Em JavaScript, a semântica dinâmica abrange como os valores de variáveis são atribuídos, como as funções são chamadas, como o escopo é gerenciado e como o código interage com o ambiente de execução, como o navegador.
+
+Semântica Operacional:
+A semântica operacional é uma abordagem para descrever o comportamento de um programa por meio de regras formais que definem como as instruções são executadas e como os estados do programa mudam. Isso inclui a semântica operacional de pequenos passos, onde cada etapa da execução é detalhada. Em JavaScript, isso poderia envolver a descrição de como as operações de atribuição, chamada de função e outras construções de linguagem são executadas.
+
+Semântica Denotacional:
+A semântica denotacional é uma abordagem que associa programas a funções matemáticas que descrevem seu significado. Ela se concentra em capturar o significado de um programa de forma precisa e abstrata. Em JavaScript, isso poderia envolver a representação de expressões e construções da linguagem como funções que mapeiam estados e valores.
+
+### conjunto de caracteres
+
+Os programas JavaScript são escritos com o conjunto de caracteres Unicode. Unicode é um superconjunto de ASCII e Latin-1 e suporta praticamente todos os idiomas escritos usados hoje no planeta.
+
+### Sequências de escape Unicode
+
+Alguns componentes de hardware e software de computador não conseguem exibir ou introduzir o conjunto completo de caracteres Unicode. Para ajudar os programadores que utilizam essa tecnologia mais antiga, JavaScript define sequências especiais de seis caracteres ASCII para representar qualquer código Unicode de 16 bits.
+
+Esses escapes Unicode começam com os caracteres \u e são seguidos
+por exatamente quatro dígitos hexadecimais (usando as letras A–F maiúsculas ou minúsculas). Os escapes Unicode podem aparecer em strings literais, expressões regulares literais e em identificadores
+JavaScript (mas não em palavras-chave da linguagem). O escape Unicode para o caractere “é”, por exemplo, é \u00E9, e as duas strings JavaScript a seguir são idênticas:
+
+      "café" === "caf\u00e9" // => true
+  
+Os escapes Unicode também podem aparecer em comentários, mas como os comentários são ignorados, eles são tratados como caracteres ASCII nesse contexto e não são interpretados como Unicode.
+
+### Normalização
+
+O Unicode permite mais de uma maneira de codificar o mesmo caractere. A string “é”, por exemplo, pode ser codificada como o caractere Unicode \u00E9 ou como um caractere ASCII “e” normal, seguido da marca de combinação de acento agudo \u0301.
+
+Essas duas codificações podem parecer exatamente a mesma quando exibidas por um editor de textos, mas têm diferentes codificações binárias e são consideradas diferentes pelo computador. 
+
+O padrão Unicode define a codificação preferida para todos os caracteres e especifica um procedimento de normalização para converter texto em uma forma canônica conveniente para comparações. JavaScript presume que o código-fonte que está interpretando já foi normalizado e não tenta normalizar identificadores, strings nem expressões regulare
+
+### Literais
+
+Um literal é um valor de dados que aparece diretamente em um programa. Os valores seguintes são
+
+todos literais:
+
+      12 // O número doze
+      1.2 // O número um ponto dois
+      "hello world" // Uma string de texto
+      'Hi' // Outra string
+      true // Um valor booleano
+      false // O outro valor booleano
+      /javascript/gi // Uma "expressão regular" literal (para comparação de padrões)
+      null // Ausência de um objeto
+
+
+
 ### Palavras reservadas fazem parte desse capitulo
 
 JavaScript predefine diversas variáveis e funções globais e você deve evitar o uso de seus nomes em suas próprias variáveis e funções:
@@ -152,7 +276,7 @@ JavaScript predefine diversas variáveis e funções globais e você deve evitar
       decodeURI EvalError Math RangeError undefined
       decodeURIComponent Function NaN ReferenceError URIError
 
-### Pontos e vírgulas opcionais
+### Pontos e vírgulas opcionais, isso é semantico ou sintaxico?
 
 Muitos programadores JavaScript (e o código deste livro) utilizam pontos e vírgulas para marcar explicitamente os finais de instruções, mesmo onde eles não são obrigatórios. Outro estilo é omitir os pontos
 e vírgulas quando possível, utilizando-os nas poucas situações que os encorajaram. Qualquer que seja o
@@ -253,7 +377,8 @@ No entanto:
 
       let resultado = (3 + 4) * 2; // Aqui, os parênteses definem a ordem das operações
 
-##  2 Tipos, valores e variáveis
+##   Tipos de Dados
+
 pagina 28 - 52
 
 Os tipos de JavaScript podem ser divididos em duas categorias: __tipos primitivos__ e __tipos de objeto__. E podem ser divididos em __tipos com métodos__ e __tipos sem métodos__. Também podem ser classificados como __tipos mutáveis__ e __tipos imutáveis__.
@@ -340,7 +465,8 @@ JavaScript é uma linguagem orientada a objetos. Isso significa que, em vez de t
 JavaScript define outro tipo especial de objeto, conhecido como função. Uma função é um objeto que tem código executável associado. Uma função pode ser chamada para executar esse código executável e retornar um valor calculado. Assim como os arrays, as funções se comportam de maneira diferente dos outros tipos de objetos, sendo que JavaScript define uma sintaxe especial para trabalhar com elas. O mais importante a respeito das funções em JavaScript é que elas são valores reais e os programas em JavaScript podem tratá-las como objetos normais. As funções são abordadas no Capítulo 8.
 
 (Página 29). 
-Um objeto normal em JavaScript é um conjunto não ordenado de valores nomeados. A linguagem também define um tipo especial de objeto, conhecido como __array__, que representa um conjunto ordenado de valores numerados. 
+Um objeto normal em JavaScript é um conjunto não ordenado de valores nomeados. A linguagem também define um tipo especial de objeto, conhecido como 
+__array__, que representa um conjunto ordenado de valores numerados. 
 
 Um objeto (isto é, um membro do tipo objeto) é um conjunto de propriedades, em que cada propriedade tem um nome e um valor (ou um valor primitivo, como um número ou string, ou um objeto).
 
@@ -746,7 +872,7 @@ a = 20; // Altera o valor de a, mas não afeta b
 console.log(b); // Saída: 10, pois b tem uma cópia do valor original de a
 Portanto, em JavaScript, todas as variáveis, sejam primitivas ou objetos, são armazenadas no heap, mas o comportamento de cópia e atribuição difere entre os tipos de dados. O mecanismo de passagem por referência para objetos é importante para entender como as alterações em um objeto afetam outras variáveis que também fazem referência ao mesmo objeto.
 
-### registros
+### tipo  registro
 
 Em JavaScript, você pode criar objetos que são coleções de pares chave-valor, onde as chaves são strings (ou símbolos) que representam os campos e os valores são os dados associados a esses campos. Essa é uma maneira eficaz de criar estruturas de dados semelhantes a registros. Aqui está um exemplo de como criar e usar um objeto em JavaScript:
 
@@ -817,6 +943,7 @@ Embora JavaScript não tenha tipos de união incorporados como em outras linguag
 Se você deseja obter recursos semelhantes aos tipos de união de linguagens como TypeScript, você pode considerar usar TypeScript em vez do JavaScript padrão. TypeScript é um superset de JavaScript que adiciona tipagem estática opcional e outros recursos de linguagem, incluindo tipos de união. Com TypeScript, você pode definir explicitamente tipos de união para uma variável, permitindo que ela possua diferentes tipos em diferentes situações.
 
 ### verificação de tipo 
+
 A verificação de tipo em JavaScript é dinâmica, o que significa que os tipos de dados são associados aos valores em tempo de execução e podem ser alterados ao longo da vida do programa. Isso é diferente das linguagens de programação de tipagem estática, onde os tipos são definidos em tempo de compilação e não podem ser alterados facilmente durante a execução do programa.
 
 Em JavaScript, você não precisa declarar explicitamente o tipo de uma variável ao criar. O tipo é inferido automaticamente com base no valor atribuído. Além disso, você pode alterar o tipo de uma variável simplesmente atribuindo um novo valor de um tipo diferente a ela.
@@ -830,106 +957,6 @@ Por exemplo:
     console.log(typeof valor); // Saída: "string"
 
 Essa natureza dinâmica da verificação de tipo em JavaScript oferece flexibilidade, mas também pode levar a erros se não for tratada com cuidado. É importante estar ciente de como os tipos podem mudar em diferentes partes do código e escrever verificações apropriadas para garantir o comportamento esperado.
-
-### sintaxa basica
-
-JavaScript é uma linguagem de programação de alto nível amplamente utilizada para desenvolvimento web e outras aplicações interativas. A seguir, apresento a sintaxe e a semântica básica do JavaScript:
-
-Sintaxe Básica:
-
-Comentários:
-
-      // Este é um comentário de uma linha
-      /*
-      Este é um comentário
-      de múltiplas linhas
-      */
-
-Variáveis e Atribuição:
-
-      let nome = "Alice";
-      const idade = 25;
-      var contador = 0; // Escopo global (menos recomendado)
-
-Tipos de Dados:
-
-      let numero = 42;          // Número
-      let texto = "Olá, mundo"; // String
-      let booleano = true;      // Booleano (true/false)
-      let nulo = null;          // Valor nulo
-      let indefinido;           // Valor indefinido
-      let objeto = { chave: "valor" }; // Objeto
-      let array = [1, 2, 3];     // Array
-
-Operadores Aritméticos:
-
-      let soma = 5 + 3;
-      let subtracao = 10 - 4;
-      let multiplicacao = 6 * 2;
-      let divisao = 12 / 3;
-      let modulo = 7 % 3; // Resto da divisão
-
-Operadores de Comparação:
-
-      let igualdade = 5 === "5"; // Igualdade estrita (valor e tipo)
-let desigualdade = 10 !== 5; // Diferente estrito
-let maior = 7 > 3;
-let menorOuIgual = 4 <= 4;
-
-Estruturas de Controle: 
-
-* Condicional if:
-
-      if (condicao) {
-        // Código executado se a condição for verdadeira
-      } else {
-        // Código executado se a condição for falsa
-      }
-* Loop for:
-
-        for (let i = 0; i < 5; i++) {
-        // Código executado em cada iteração
-      }
-
-* Loop while:
-
-Funções:
-
-      function saudacao(nome) {
-        return "Olá, " + nome;
-      }
-      
-      let mensagem = saudacao("Alice"); // Retorna "Olá, Alice"
-      
-### Semântica Básica:
-
-JavaScript é uma linguagem de programação interpretada, o que significa que o código é executado diretamente pelo interpretador do navegador ou ambiente de execução. A semântica básica do JavaScript inclui:
-
-O fluxo de controle é determinado pelas estruturas de controle condicional (if/else) e de loop (for, while).
-As variáveis são tipadas dinamicamente, o que significa que você não precisa declarar explicitamente o tipo.
-Valores undefined e null são usados para representar valores ausentes ou não definidos.
-Os objetos são usados para agrupar valores relacionados em pares chave-valor.
-Funções permitem a reutilização de código e podem ser passadas como argumentos ou retornadas de outras funções.
-Esses são apenas conceitos e exemplos básicos. O JavaScript possui recursos mais avançados e é extensivamente usado para criar aplicativos web interativos, manipular o DOM, realizar chamadas assíncronas a APIs e muito mais.
-
-Vou explicar cada um dos conceitos mencionados - semântica estática, gramáticas de atributos, semântica dinâmica, semântica operacional e semântica denotacional - com base em JavaScript:
-
-Semântica Estática:
-A semântica estática se refere à análise de um programa antes da execução, visando identificar erros e verificar propriedades do código sem a necessidade de executá-lo. Isso inclui a verificação de tipos, análise de escopo, análise de fluxo de controle, entre outros. Em JavaScript, ferramentas como linters e o próprio compilador do TypeScript fornecem análise estática para identificar erros e melhorar a qualidade do código.
-
-Gramáticas de Atributos:
-Uma gramática de atributos é uma técnica usada para associar valores a não terminais em uma gramática formal, como uma linguagem de programação. É frequentemente usada para calcular informações como tipos, escopos e outros atributos em linguagens de programação. No contexto de JavaScript, isso poderia ser aplicado para calcular informações sobre variáveis, tipos de dados ou escopo em uma análise semântica.
-
-Semântica Dinâmica:
-A semântica dinâmica se concentra no comportamento de um programa durante a execução. Isso inclui a forma como as instruções são executadas e como os valores são calculados em tempo de execução. Em JavaScript, a semântica dinâmica abrange como os valores de variáveis são atribuídos, como as funções são chamadas, como o escopo é gerenciado e como o código interage com o ambiente de execução, como o navegador.
-
-Semântica Operacional:
-A semântica operacional é uma abordagem para descrever o comportamento de um programa por meio de regras formais que definem como as instruções são executadas e como os estados do programa mudam. Isso inclui a semântica operacional de pequenos passos, onde cada etapa da execução é detalhada. Em JavaScript, isso poderia envolver a descrição de como as operações de atribuição, chamada de função e outras construções de linguagem são executadas.
-
-Semântica Denotacional:
-A semântica denotacional é uma abordagem que associa programas a funções matemáticas que descrevem seu significado. Ela se concentra em capturar o significado de um programa de forma precisa e abstrata. Em JavaScript, isso poderia envolver a representação de expressões e construções da linguagem como funções que mapeiam estados e valores.
-
-Em resumo, a semântica estática está preocupada com análises antes da execução, a semântica dinâmica com o comportamento durante a execução, as gramáticas de atributos com a associação de informações em gramáticas formais e as semânticas operacional e denotacional com a descrição formal do significado de um programa. Cada abordagem oferece uma maneira única de entender e analisar o comportamento dos programas JavaScript.
 
 
 ### tratamento de erro em java script
@@ -991,9 +1018,11 @@ O DOM (Document Object Model) em JavaScript é uma representação hierárquica 
 Aqui estão alguns conceitos-chave relacionados ao DOM em JavaScript:
 
 Árvore DOM:
-O DOM organiza os elementos HTML (como tags <div>, <p>, <h1>, etc.) em uma estrutura de árvore. Cada elemento é representado como um nó na árvore, com o nó raiz representando o documento inteiro. Os elementos podem ter filhos (elementos aninhados) e irmãos (elementos no mesmo nível hierárquico).
+
+      O DOM organiza os elementos HTML (como tags <div>, <p>, <h1>, etc.) em uma estrutura de árvore. Cada elemento é representado como um nó na árvore, com o nó raiz representando o documento inteiro. Os elementos podem ter filhos (elementos aninhados) e irmãos (elementos no mesmo nível hierárquico).
 
 Acesso e Manipulação:
+
 Com JavaScript, você pode acessar e manipular o DOM usando métodos e propriedades fornecidos pela API do DOM. Isso inclui alterar conteúdo, estilos, atributos e até mesmo adicionar ou remover elementos da página.
 
 Seleção de Elementos:
