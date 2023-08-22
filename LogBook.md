@@ -852,8 +852,7 @@ Variáveis declaradas com var:
 Têm escopo de função ou escopo global, caso sejam declaradas fora de uma função.
 Existem durante toda a execução da função em que foram criadas ou durante toda a execução do programa, se declaradas fora de funções (escopo global).
 São "hoisted" (içadas) para o topo do seu escopo de função ou global, o que significa que podem ser acessadas antes mesmo de serem declaradas, mas ainda não têm valor definido.
-javascript
-Copy code
+
     function exemplo() {
     if (true) {
         var x = 10; // x existe durante toda a execução da função exemplo
@@ -901,8 +900,6 @@ Em JavaScript, a linguagem não oferece um mecanismo nativo para declarar variá
 
 Exemplo de simulação de variável estática em JavaScript:
 
-javascript
-Copy code
     function contador() {
     let count = 0; // Variável local que funciona como "variável estática"
 
