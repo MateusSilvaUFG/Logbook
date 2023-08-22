@@ -1282,3 +1282,5 @@ Mozilla Developer Network. "Introdução ao Document Object Model (DOM)." Dispon
 Mozilla Developer Network. "Referência de Funções JavaScript." Disponível em: https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Functions
 
 Mozilla Developer Network. "Referência de Classes JavaScript." Disponível em: https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Classes
+
+Mozilla Developer Network. "Array.prototype.forEach()". Disponível em: https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
