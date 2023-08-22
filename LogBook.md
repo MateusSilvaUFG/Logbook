@@ -18,7 +18,7 @@ Logbook for Programming Languages ​​and Paradigms
    9. [Verificação de Tipo](#verificação-de-tipo)
    10. [Escopo](#escopo)
    11. [Endereço de Memória](#endereço-de-memória)
-   12. [Amarração](#amarracao)
+   12. [Amarração](#amarração)
    13. [Tempo de Vida](#tempo-de-vida)
    14. [Variável Estática](#variável-estática)
    15. [Variável Pilha](#variável-pilha)
