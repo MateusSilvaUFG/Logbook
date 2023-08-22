@@ -911,14 +911,15 @@ Exemplo de simulação de variável estática em JavaScript:
     return increment;
     }
 
-const contador1 = contador(); // Cria uma instância do contador
-contador1(); // Saída: 1
-contador1(); // Saída: 2
-contador1(); // Saída: 3
+      const contador1 = contador(); // Cria uma instância do contador
+      contador1(); // Saída: 1
+      contador1(); // Saída: 2
+      contador1(); // Saída: 3
+      
+      const contador2 = contador(); // Cria outra instância do contador
+      contador2(); // Saída: 1 (inicia a contagem independente da outra instância)
+      contador2(); // Saída: 2
 
-const contador2 = contador(); // Cria outra instância do contador
-contador2(); // Saída: 1 (inicia a contagem independente da outra instância)
-contador2(); // Saída: 2
 Neste exemplo, a função contador retorna uma closure, que é a função increment. A variável count dentro da função contador atua como uma "variável estática" porque mantém seu valor entre chamadas diferentes à função increment. Cada instância de contador criada por meio da função contador() tem seu próprio escopo e mantém uma cópia privada da variável count.
 
 Lembrando que esse padrão é uma simulação de variável estática em JavaScript e pode não ser tão eficiente ou claro como em linguagens que suportam esse recurso diretamente. É importante entender como closures funcionam para evitar comportamentos inesperados ao criar variáveis com "persistência" em JavaScript.
