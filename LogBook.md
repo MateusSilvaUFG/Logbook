@@ -892,7 +892,7 @@ Variáveis globais têm um tempo de vida mais longo e são mantidas na memória 
 
 É importante lembrar que, após o tempo de vida de uma variável terminar (quando ela sai do escopo ou quando a execução do programa é concluída), a memória associada a essa variável é liberada automaticamente pelo garbage collector do JavaScript. Isso ajuda a evitar vazamento de memória e gerencia eficientemente os recursos do sistema.
 
-### variavel estatica
+### Variável Estática
 
 Em JavaScript, não existe um conceito direto de "variável estática" como em algumas outras linguagens de programação. Nas linguagens que suportam variáveis estáticas, essas variáveis são geralmente associadas a uma classe ou escopo de função e mantêm seu valor entre chamadas subsequentes à função ou instâncias da classe, preservando seu estado ao longo do tempo.
 
@@ -923,7 +923,7 @@ Neste exemplo, a função contador retorna uma closure, que é a função increm
 
 Lembrando que esse padrão é uma simulação de variável estática em JavaScript e pode não ser tão eficiente ou claro como em linguagens que suportam esse recurso diretamente. É importante entender como closures funcionam para evitar comportamentos inesperados ao criar variáveis com "persistência" em JavaScript.
 
-### Variavel Pilha
+### Variável Pilha
 
 Em JavaScript, as variáveis são alocadas de forma diferente em comparação com linguagens que têm uma área de memória dedicada para a pilha de execução, como C ou C++. Em JavaScript, a alocação de variáveis é feita no heap e não na pilha.
 
