@@ -812,7 +812,7 @@ Neste exemplo, a variável x está disponível dentro da função exemplo e dent
 
 O escopo estático em JavaScript é fundamental para entender como as variáveis são acessíveis em diferentes partes do código e garantir que elas sejam utilizadas corretamente. É recomendado utilizar let e const para declarar variáveis em blocos de código, pois eles oferecem um escopo mais previsível e seguro, evitando problemas de sobrescrita acidental e comportamentos inesperados.
 
-### Endereço de memoria
+### Endereço de Memória
 
 Em JavaScript, não é possível acessar diretamente o endereço de memória de uma variável como é possível em algumas linguagens de programação de baixo nível. 
 Não, JavaScript não possui ponteiros como em linguagens de programação de baixo nível, como C ou C++. Em JavaScript, a manipulação de memória é abstraída e gerenciada pelo próprio ambiente de execução (geralmente um navegador ou um ambiente de tempo de execução do JavaScript, como o Node.js).
