@@ -34,9 +34,9 @@ Logbook for Programming Languages ​​and Paradigms
 # Introdução
 Introdução ao JavaScript e suas Aplicações:
 
-JavaScript é uma das linguagens de programação mais populares e versáteis do mundo da tecnologia. Criada em 1995 por Brendan Eich, inicialmente para melhorar a experiência de interação dos usuários com páginas web, o JavaScript tornou-se uma linguagem essencial para o desenvolvimento front-end e back-end.
+JavaScript é uma das linguagens mais populares e versáteis do mundo da tecnologia. Criada em 1995 por Brendan Eich, inicialmente para melhorar a experiência de interação dos usuários com páginas web, o JavaScript tornou-se uma linguagem essencial para o desenvolvimento front-end e back-end.
 
-JavaScript é uma linguagem de programação interpretada, ou seja, é executada diretamente no navegador do usuário, permitindo que desenvolvedores criem páginas web interativas, dinâmicas e reativas. Inicialmente, sua aplicação principal era a manipulação de elementos HTML, permitindo que os desenvolvedores criassem páginas web mais ricas em funcionalidades.
+JavaScript é uma linguagem de  interpretada, ou seja, é executada diretamente no navegador do usuário, permitindo que desenvolvedores criem páginas web interativas, dinâmicas e reativas. Inicialmente, sua aplicação principal era a manipulação de elementos HTML, permitindo que os desenvolvedores criassem páginas web mais ricas em funcionalidades.
 
 Com o passar do tempo, o JavaScript evoluiu significativamente, sendo adotado também no desenvolvimento de aplicações server-side (back-end), com a popularização do Node.js. Dessa forma, desenvolvedores podem utilizar a mesma linguagem tanto no front-end quanto no back-end, o que resulta em maior eficiência e coesão no desenvolvimento de aplicações web completas.
 
@@ -58,7 +58,7 @@ As aplicações do JavaScript são diversas, incluindo:
 
 8. __Visualização de Dados:__ Bibliotecas como D3.js permitem criar gráficos interativos e visualizações de dados complexas.
 
-Em resumo, JavaScript é uma linguagem de programação versátil e poderosa, utilizada em praticamente todas as áreas do desenvolvimento web e de aplicações. Sua popularidade e adoção generalizada garantem que o JavaScript continue sendo uma das principais linguagens de programação no mundo da tecnologia.
+Em resumo, JavaScript é uma linguagem  versátil e poderosa, utilizada em praticamente todas as áreas do desenvolvimento web. Sua popularidade e adoção generalizada garantem que o JavaScript continue sendo uma das principais linguagens de programação no mundo da tecnologia.
 
 ### Método de Implementação
 
@@ -82,7 +82,7 @@ JavaScript é uma linguagem de programação de alto nível amplamente utilizada
 
 ### Estruruta léxica
 
-A *estrutura léxica* de uma linguagem de programação é o conjunto de regras elementares que especificam o modo de escrever programas nessa linguagem. É a sintaxe de nível mais baixo de uma linguagem; especifica detalhes de como são os nomes de variáveis, os caracteres delimitadores para comentários e como uma instrução do programa é separada da seguinte.
+A *estrutura léxica* de uma linguagem de programação é o conjunto de regras elementares que especificam o modo de escrever a linguagem. É a sintaxe de nível mais baixo de uma linguagem; especifica detalhes de como são os nomes de variáveis, os caracteres delimitadores para comentários e como uma instrução do programa é separada da seguinte.
 
 ### Declaração de Variáveis (let , const e var):
 
@@ -133,7 +133,6 @@ Ao declarar variáveis em JavaScript, é importante seguir algumas regras para g
 
 5. __Unicode:__
 * JavaScript suporta caracteres Unicode em nomes de variáveis. Isso permite usar caracteres acentuados, símbolos e outros caracteres Unicode, mas não é recomendado para manter a legibilidade.
-Exemplos válidos de declaração de variáveis:
 
 Exemplos válidos de declaração de variáveis e sintaxe básica:
 
@@ -1269,3 +1268,17 @@ Implementação de Passagem de Parâmetro:
       let meuArray = [1, 2, 3];
       modificarArray(meuArray); // O array é alterado fora da função
       console.log(meuArray); // Saída: [1, 2, 3, 42]
+
+## referÊncia bibliografia
+
+Flanagan, David. "JavaScript: O Guia Definitivo." Editora Bookman Editora, 2012.
+
+FreeCodeCamp. "var, let e const: qual é a diferença?" Disponível em: https://www.freecodecamp.org/portuguese/news/var-let-e-const-qual-e-a-diferenca/
+
+Betrybe Blog. "Map em JavaScript: como e quando usar." Disponível em: https://blog.betrybe.com/javascript/javascript-map/
+
+Mozilla Developer Network. "Introdução ao Document Object Model (DOM)." Disponível em: https://developer.mozilla.org/pt-BR/docs/Web/API/Document_Object_Model/Introduction
+
+Mozilla Developer Network. "Referência de Funções JavaScript." Disponível em: https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Functions
+
+Mozilla Developer Network. "Referência de Classes JavaScript." Disponível em: https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Classes
