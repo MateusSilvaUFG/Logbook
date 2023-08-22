@@ -824,7 +824,7 @@ Em vez de ponteiros, JavaScript usa referências a objetos e valores. Ao atribui
     objeto1 = null; // objeto1 agora não aponta mais para o objeto
     console.log(objeto2.nome); // Ainda é possível acessar o objeto através de objeto2
 
-### amarração 
+### Amarração 
 
 Em JavaScript, a amarração de variáveis é dinâmica. Isso significa que o tipo de dado associado a uma variável pode mudar durante a execução do programa, conforme novos valores são atribuídos a ela.
 
