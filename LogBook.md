@@ -29,7 +29,7 @@ Logbook for Programming Languages ​​and Paradigms
    18. [Tratamento de Erro em JavaScript](#tratamento-de-erro-em-java-script)
 5. [Expressões e Operadores](#expressões-e-operadores)
 6. [Operadores](#operadores)
-
+7. [Referência Bibliografia](#referência-bibliografia)
 
 # Introdução
 Introdução ao JavaScript e suas Aplicações:
@@ -1269,7 +1269,7 @@ Implementação de Passagem de Parâmetro:
       modificarArray(meuArray); // O array é alterado fora da função
       console.log(meuArray); // Saída: [1, 2, 3, 42]
 
-## referÊncia bibliografia
+# Referência Bibliografia
 
 Flanagan, David. "JavaScript: O Guia Definitivo." Editora Bookman Editora, 2012.
 
