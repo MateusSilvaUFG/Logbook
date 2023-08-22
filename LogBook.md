@@ -3,8 +3,6 @@ Logbook for Programming Languages ​​and Paradigms
 
 ## Índice
 
-## Índice
-
 1. [Introdução](#introdução)
 2. [Método de Implementação](#método-de-implementação)
 3. [Precedência e Associatividade de Operadores](#precedência-e-associatividade-de-operadores)
@@ -463,7 +461,7 @@ __Null__ É um tipo primitivo em JavaScript e representa explicitamente a ausên
 
     let nome = null; // Variável nome tem valor null (ausência intencional de valor)
 
-### 6 - Objeto
+### Objeto
 
 m JavaScript, um objeto é uma coleção de propriedades, onde cada propriedade tem um nome (chave) e um valor associado. Os objetos são uma estrutura de dados central na linguagem, e eles podem representar entidades do mundo real, conceitos abstratos ou até mesmo abstrações complexas.
 
@@ -565,7 +563,7 @@ Em JavaScript, a herança simples baseada em protótipos é implementada de form
 
 
 
-### 7 - ARRAY 
+### ARRAY 
 
 Em JavaScript, um array é uma estrutura de dados que permite armazenar e acessar múltiplos valores em uma única variável. Os arrays são especialmente úteis quando você precisa lidar com uma coleção de elementos, como números, strings, objetos ou até mesmo outros arrays.
 
