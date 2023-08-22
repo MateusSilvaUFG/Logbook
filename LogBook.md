@@ -22,9 +22,10 @@ Logbook for Programming Languages ​​and Paradigms
    13. [Tempo de Vida](#tempo-de-vida)
    14. [Variável Estática](#variável-estática)
    15. [Variável Pilha](#variável-pilha)
-   16. [Variável Explícita de Heap x Variável Implícita de Heap](#variável-explícita-de-heap-x-variável-implícita-de-heap)
-   17. [Literal Numérico](#literal-numérico)
-   18. [Tratamento de Erro em JavaScript](#tratamento-de-erro-em-java-script)
+   16. [Variável Heap](#variável-heap)
+   17. [Variável Explícita de Heap x Variável Implícita de Heap](#variável-explícita-de-heap-x-variável-implícita-de-heap)
+   18. [Literal Numérico](#literal-numérico)
+   19. [Tratamento de Erro em JavaScript](#tratamento-de-erro-em-java-script)
 5. [Expressões e Operadores](#expressões-e-operadores)
 6. [Operadores](#operadores)
 7. [Referência Bibliografia](#referência-bibliografia)
@@ -936,6 +937,13 @@ Vale ressaltar que os detalhes de alocação de memória em JavaScript são abst
 
 Embora JavaScript não tenha uma pilha de execução explícita para alocar variáveis, você ainda precisa ter cuidado com o gerenciamento de memória e evitar vazamentos de memória ao criar objetos e referências. O mecanismo de coleta de lixo (garbage collector) do JavaScript é responsável por liberar a memória de objetos que não estão mais em uso, ajudando a evitar problemas de memória.
 
+### Variável Heap
+
+Em JavaScript, as variáveis que fazem referência a objetos são armazenadas na memória heap. A memória heap é uma região de memória usada para alocar e armazenar objetos complexos, como objetos, arrays e funções.
+
+Quando você cria um objeto em JavaScript usando a notação de chaves {} ou um array usando [], esses objetos são armazenados na memória heap. Variáveis que fazem referência a esses objetos não armazenam diretamente os dados do objeto, mas sim um ponteiro que aponta para a localização real do objeto na memória heap.
+
+A memória heap é gerenciada pelo mecanismo de coleta de lixo do JavaScript, que é responsável por identificar objetos que não são mais acessíveis e liberar a memória ocupada por eles para ser reutilizada.
 
 ### Variável Explícita de Heap x Variável Implícita de Heap
 
