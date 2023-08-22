@@ -1282,3 +1282,11 @@ Mozilla Developer Network. "Referência de Funções JavaScript." Disponível em
 Mozilla Developer Network. "Referência de Classes JavaScript." Disponível em: https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Classes
 
 Mozilla Developer Network. "Array.prototype.forEach()". Disponível em: https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
+
+Awari. "Visualização de Dados com D3.js: O que é e qual sua importância?" Disponível em: https://awari.com.br/visualizacao-de-dados-com-d3-js-o-que-e-e-qual-sua-importancia/
+
+Botpress. "Can you make your own chatbot?" Disponível em: https://botpress.com/pt/blog/can-you-make-your-own-chatbot
+
+Digital Innovation One. "JavaScript além do frontend: explorando o poder da linguagem do lado do servidor e além." Disponível em: https://www.dio.me/articles/javascript-alem-do-frontend-explorando-o-poder-da-linguagem-do-lado-do-servidor-e-alem
+
+Mozilla Developer Network. "3D on the web." Disponível em: https://developer.mozilla.org/pt-BR/docs/Games/Techniques/3D_on_the_web
