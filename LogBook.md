@@ -402,7 +402,7 @@ No entanto:
 
       let resultado = (3 + 4) * 2; // Aqui, os parênteses definem a ordem das operações
 
-# Tipos de Dados
+# Tipos, valores e variáveis
 
 Os tipos de JavaScript podem ser divididos em duas categorias: __tipos primitivos__ e __tipos de objeto__. E podem ser divididos em __tipos com métodos__ e __tipos sem métodos__. 
 
