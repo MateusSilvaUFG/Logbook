@@ -1290,3 +1290,5 @@ Botpress. "Can you make your own chatbot?" Disponível em: https://botpress.com/
 Digital Innovation One. "JavaScript além do frontend: explorando o poder da linguagem do lado do servidor e além." Disponível em: https://www.dio.me/articles/javascript-alem-do-frontend-explorando-o-poder-da-linguagem-do-lado-do-servidor-e-alem
 
 Mozilla Developer Network. "3D on the web." Disponível em: https://developer.mozilla.org/pt-BR/docs/Games/Techniques/3D_on_the_web
+
+Freecodecamp. "var, let e const: qual é a diferença?" Disponível em: https://www.freecodecamp.org/portuguese/news/var-let-e-const-qual-e-a-diferenca/
